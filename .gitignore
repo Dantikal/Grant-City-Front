@@ -1,0 +1,57 @@
+/node_modules
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+.env
+.env*.local
+
+.DS_Store
+*.pem
+.vercel
+/coverage
+
+# Confidential client source material (decks/docs) — never publish
+/src/.info_for_claude/
+
+# Editor / AI-assistant scaffolding
+/.agent/
+/.codebuddy/
+/.codex/
+/.continue/
+/.cursor/
+/.gemini/
+/.kiro/
+/.opencode/
+/.qoder/
+/.roo/
+/.trae/
+/.windsurf/
+/.claude/
+
+# ruflo / claude-flow local state (sessions, neural stats, memory, policy)
+/.claude-flow/
+/.ruflo/
+/.swarm/
+/.hive-mind/
+/coordination/
+/memory/
+claude-flow.config.json
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Logs & OS noise
+*.log
+Thumbs.db
+
+# Original static prototype (reference only)
+/_prototype/

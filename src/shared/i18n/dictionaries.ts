@@ -1,0 +1,864 @@
+import type { LanguageCode } from "@/shared/constants/languages";
+import { content } from "./content";
+
+type Dict = Record<string, string>;
+
+const en: Dict = {
+  // nav
+  "nav.home": "Home",
+  "nav.properties": "Properties",
+  "nav.services": "Services",
+  "nav.about": "About",
+  "nav.agents": "Agents",
+  "nav.contact": "Contact us",
+
+  // actions
+  "actions.bookViewing": "Book a viewing",
+  "actions.browse": "Browse properties",
+  "actions.talk": "Talk to an agent",
+  "actions.viewAll": "View all {count} →",
+  "actions.allProperties": "All properties →",
+  "actions.meetTeam": "Meet the team →",
+  "actions.moreAbout": "More about the company →",
+  "actions.seeSale": "See how a sale works →",
+  "actions.subscribe": "Subscribe",
+
+  "navIndex.eyebrow": "Explore the site",
+  "navDesc.home": "Overview of the company and what we do",
+  "navDesc.properties": "Apartments, houses and land plots",
+  "navDesc.services": "Valuation, business plans, sales",
+  "navDesc.about": "Who we are and how we work",
+  "navDesc.agents": "The people you'll work with",
+  "navDesc.contact": "Phone, email and office address",
+
+  "common.favorites": "Favorites",
+  "common.language": "Language",
+
+  // hero
+  "hero.badge": "Boutique property · est. 2014",
+  "hero.titlePre": "Homes with a genuine",
+  "hero.titleEm": "sense of place.",
+  "hero.subtitle":
+    "A small studio of agents in the Pacific Northwest, matching considered people with considered homes — and handling every detail in between.",
+  "hero.featured": "Featured listing",
+  "hero.rating": "Average client rating",
+  "hero.homesPlaced": "Homes placed since 2014",
+  "hero.scroll": "Scroll to explore",
+
+  // stats + values
+  "stats.homesPlaced": "Homes placed",
+  "stats.neighborhoods": "Neighborhoods covered",
+  "stats.asking": "Of asking achieved",
+  "stats.rating": "Average client rating",
+  "values.local.t": "Local",
+  "values.local.b": "Every agent lives where they sell.",
+  "values.honest.t": "Honest",
+  "values.honest.b": "Realistic numbers from day one.",
+  "values.small.t": "Small",
+  "values.small.b": "A roster we can hold in mind.",
+
+  // home: about
+  "home.about.eyebrow": "About the studio",
+  "home.about.title": "We treat every listing like it's our own address.",
+  "home.about.p1":
+    "Grand City began as two agents who were tired of the volume game. We keep our roster small on purpose — fewer homes, more attention, and the same person on the phone from first viewing to closing day.",
+  "home.about.p2":
+    "The result is a calmer kind of property: honest pricing, careful staging, and buyers who actually want what you're selling.",
+  "home.about.badgeText": "of helping people land somewhere that feels like theirs.",
+
+  // home: featured / services / agents / faq / cta / newsletter
+  "home.featured.eyebrow": "Featured listings",
+  "home.featured.title": "Homes currently on our books",
+  "home.services.eyebrow": "What we do",
+  "home.services.title": "Full-service, end to end",
+  "home.services.subtitle":
+    "One named agent stays with you from the first conversation to the final signature — across all four of the things we do.",
+  "home.agents.eyebrow": "The people",
+  "home.agents.title": "Agents you'll actually know by name",
+  "home.latest.eyebrow": "Just listed",
+  "home.latest.title": "The latest through our doors",
+  "home.faq.eyebrow": "Questions",
+  "home.faq.title": "The things people ask us first",
+  "home.cta.eyebrow": "Get in touch",
+  "home.cta.title": "Let's find you somewhere good.",
+  "home.cta.subtitle":
+    "Book a viewing, ask for a valuation, or just tell us what you're after. We reply to everything within a day.",
+  "home.cta.orCall": "or call",
+  "home.news.eyebrow": "Stay in the loop",
+  "home.news.title": "New listings, before they hit the portals",
+
+  // about page
+  "about.title": "A smaller, calmer kind of property studio.",
+  "about.subtitle":
+    "We keep our roster small on purpose — so every home, and every client, gets the attention it deserves.",
+  "about.storyTitle": "Started in 2014 by two agents tired of the volume game.",
+  "about.p1":
+    "Most brokerages reward churn — list as much as possible, move on quickly. We wanted the opposite: a small number of homes we could genuinely stand behind, sold by people who actually live in the neighborhoods they work in.",
+  "about.p2":
+    "That means honest pricing from day one, careful staging, photography that flatters without lying, and the same named agent on the phone from first viewing to closing day.",
+  "about.p3":
+    "Twelve years on, it's still how we work — and our clients keep sending their friends, which is the only metric we really trust.",
+
+  // services page
+  "services.title": "Full-service, end to end.",
+  "services.subtitle":
+    "One named agent stays with you from the first conversation to the final signature.",
+  "services.ctaTitle": "Not sure where to start?",
+  "services.ctaText":
+    "Tell us what you're weighing up and we'll point you the right way — no obligation.",
+
+  // agents page
+  "agentsPage.title": "Agents you'll actually know by name.",
+  "agentsPage.subtitle":
+    "A deliberately small team — each one lives in the neighborhoods they sell.",
+
+  // contacts page
+  "contacts.title": "Let's find you somewhere good.",
+  "contacts.subtitle": "We reply to everything within one business day.",
+  "contacts.eyebrow": "Get in touch",
+  "contacts.heading": "Let's find you somewhere good.",
+  "contacts.text":
+    "Book a viewing, ask for a valuation, or just tell us what you're after. We reply to everything within a day.",
+  "contacts.call": "Call us",
+  "contacts.email": "Email",
+  "contacts.studio": "Office",
+
+  // properties pages
+  "properties.eyebrow": "Featured listings",
+  "properties.title": "Homes currently on our books.",
+  "properties.subtitle":
+    "A small, carefully chosen catalog — filter it down to what you're actually after.",
+  "properties.buyTitle": "Homes for sale.",
+  "properties.buySub": "Considered homes, honestly priced.",
+  "properties.rentTitle": "Homes to rent.",
+  "properties.rentSub": "Places we'd happily live in ourselves.",
+  "properties.luxTitle": "The luxury collection.",
+  "properties.luxSub":
+    "The most distinctive homes on our books, for buyers who know exactly what they want.",
+  "properties.tabAll": "All",
+  "properties.tabSale": "For sale",
+  "properties.tabRent": "To rent",
+  "properties.tabLux": "Luxury",
+
+  // catalog controls
+  "catalog.search": "Search by name, neighborhood or city…",
+  "catalog.homes": "{count} homes",
+  "catalog.noMatch": "No homes match those filters",
+  "catalog.noMatchSub": "Try widening your search or clearing the filters.",
+  "catalog.clear": "Clear",
+  "catalog.anyListing": "Any listing",
+  "catalog.anyHome": "Any home",
+  "catalog.anyBeds": "Any beds",
+  "catalog.beds": "{n}+ beds",
+
+  // request form
+  "form.name": "Name",
+  "form.email": "Email",
+  "form.phone": "Phone (optional)",
+  "form.interested": "I'm interested in",
+  "form.message": "Message",
+  "form.send": "Send message",
+  "form.namePh": "Your name",
+  "form.messagePh": "Tell us what you're after…",
+  "form.kind.general": "General enquiry",
+  "form.kind.viewing": "Book a viewing",
+  "form.kind.valuation": "Request a valuation",
+  "form.kind.letting": "Letting & management",
+
+  // favorites page
+  "favorites.eyebrow": "Saved",
+  "favorites.title": "Your favorites",
+  "favorites.empty": "No favorites yet",
+  "favorites.emptySub":
+    "Tap the heart on any listing to save it here. Favorites are stored privately in your browser.",
+  "favorites.browse": "Browse properties",
+
+  // footer
+  "footer.tagline":
+    "A boutique property studio in the Pacific Northwest. Fewer homes, more attention.",
+  "footer.explore": "Explore",
+  "footer.company": "Company",
+  "footer.studio": "Office",
+  "footer.social": "Social",
+  "footer.contact": "Contact",
+  "footer.privacy": "Privacy policy",
+  "footer.terms": "Terms",
+  "footer.favorites": "Favorites",
+  "footer.rights": "© {year} Grand City",
+  "footer.license": "Licensed real estate brokerage · OR & WA",
+
+  // header hover menus
+  "menu.home.featured": "Featured listings",
+  "menu.home.services": "What we do",
+  "menu.home.agents": "Our agents",
+  "menu.home.faq": "Questions & answers",
+  "menu.about.founder": "Head of the company",
+  "menu.about.story": "Our story",
+  "menu.about.numbers": "Company in numbers",
+  "menu.about.team": "The whole team",
+  "menu.agents.complex": "Residential complex agents",
+  "menu.agents.home": "Apartment & house agents",
+  "menu.agents.land": "Land plot agents",
+  "menu.agents.all": "All agents",
+  "menu.contact.address": "Our address",
+  "menu.contact.request": "Leave a request",
+  "agentsPage.noMatch": "No agents in this specialty yet",
+
+  "partners.title": "Companies we work with",
+
+  // certificates
+  "certs.eyebrow": "Documents",
+  "certs.title": "Certificates",
+  "certs.subtitle": "Our licences and certificates.",
+  "certs.open": "Open",
+  "certs.presTitle": "Company presentation",
+  "certs.presText": "A short overview of who we are, what we do and the numbers behind it.",
+  "certs.download": "Download presentation",
+  "certs.downloaded": "Presentation downloaded ({lang})",
+  "certs.downloadFailed": "Couldn't download the presentation. Please try again.",
+  "certs.galleryTitle": "Certificates",
+  "certs.gallerySub": "Click any certificate to see it full size.",
+  "certs.empty": "No certificates published yet",
+  "certs.emptySub": "They will appear here as soon as they are uploaded in the admin panel.",
+  "certs.prev": "Previous certificate",
+  "certs.next": "Next certificate",
+
+  "docs.title": "Documents",
+  "docs.subtitle": "Certificates, licences and the company presentation — in one place.",
+  "docs.aboutTeaser": "Licences, certificates and the company presentation — available to view and download.",
+  "docs.certsText": "Our licences and certificates, viewable full size.",
+  "docs.presText": "A short company overview, downloadable in four languages.",
+  "certs.pickLang": "Choose a language",
+  "certs.pickLangSub": "The presentation is available in all four site languages. Pick one to download it.",
+};
+
+const ru: Dict = {
+  "nav.home": "Главная",
+  "nav.properties": "Недвижимость",
+  "nav.services": "Услуги",
+  "nav.about": "О компании",
+  "nav.agents": "Агенты",
+  "nav.contact": "Связаться",
+
+  "actions.bookViewing": "Записаться на просмотр",
+  "actions.browse": "Смотреть объекты",
+  "actions.talk": "Связаться с агентом",
+  "actions.viewAll": "Смотреть все ({count}) →",
+  "actions.allProperties": "Все объекты →",
+  "actions.meetTeam": "Познакомиться с командой →",
+  "actions.moreAbout": "Подробнее о компании →",
+  "actions.seeSale": "Как проходит продажа →",
+  "actions.subscribe": "Подписаться",
+
+  "navIndex.eyebrow": "Разделы сайта",
+  "navDesc.home": "Обзор компании и её услуг",
+  "navDesc.properties": "Каталог квартир, домов и участков",
+  "navDesc.services": "Оценка, бизнес-планы, продажа",
+  "navDesc.about": "Кто мы и как работаем",
+  "navDesc.agents": "Специалисты, которые вас ведут",
+  "navDesc.contact": "Телефон, почта и адрес офиса",
+
+  "common.favorites": "Избранное",
+  "common.language": "Язык",
+
+  "hero.badge": "Бутиковая недвижимость · с 2014",
+  "hero.titlePre": "Дома с подлинным",
+  "hero.titleEm": "чувством места.",
+  "hero.subtitle":
+    "Небольшая студия агентов на Тихоокеанском Северо-Западе — подбираем вдумчивым людям продуманные дома и берём на себя все детали.",
+  "hero.featured": "Рекомендуемый объект",
+  "hero.rating": "Средняя оценка клиентов",
+  "hero.homesPlaced": "Домов продано с 2014",
+  "hero.scroll": "Листайте вниз",
+
+  "stats.homesPlaced": "Проданных домов",
+  "stats.neighborhoods": "Районов охвата",
+  "stats.asking": "От запрошенной цены",
+  "stats.rating": "Средняя оценка клиентов",
+  "values.local.t": "Местные",
+  "values.local.b": "Каждый агент живёт там, где продаёт.",
+  "values.honest.t": "Честные",
+  "values.honest.b": "Реалистичные цифры с первого дня.",
+  "values.small.t": "Небольшие",
+  "values.small.b": "Список, который мы держим в голове.",
+
+  "home.about.eyebrow": "О студии",
+  "home.about.title": "К каждому объекту относимся как к собственному адресу.",
+  "home.about.p1":
+    "Grand City начали два агента, уставшие от гонки за объёмом. Мы намеренно держим небольшой список — меньше домов, больше внимания, и один и тот же человек с вами от первого показа до сделки.",
+  "home.about.p2":
+    "В результате недвижимость становится спокойнее: честные цены, аккуратная подготовка и покупатели, которым действительно нужно то, что вы продаёте.",
+  "home.about.badgeText": "помогаем людям найти место, которое ощущается своим.",
+
+  "home.featured.eyebrow": "Избранные объекты",
+  "home.featured.title": "Дома, которые сейчас у нас в работе",
+  "home.services.eyebrow": "Чем мы занимаемся",
+  "home.services.title": "Полный цикл, от и до",
+  "home.services.subtitle":
+    "Один закреплённый агент сопровождает вас от первого разговора до последней подписи — во всех четырёх направлениях.",
+  "home.agents.eyebrow": "Люди",
+  "home.agents.title": "Агенты, которых вы будете знать по имени",
+  "home.latest.eyebrow": "Только что добавлено",
+  "home.latest.title": "Свежие предложения",
+  "home.faq.eyebrow": "Вопросы",
+  "home.faq.title": "О чём спрашивают чаще всего",
+  "home.cta.eyebrow": "Связаться",
+  "home.cta.title": "Давайте найдём вам хорошее место.",
+  "home.cta.subtitle":
+    "Запишитесь на просмотр, попросите оценку или просто расскажите, что ищете. Мы отвечаем на всё в течение дня.",
+  "home.cta.orCall": "или позвоните",
+  "home.news.eyebrow": "Будьте в курсе",
+  "home.news.title": "Новые объекты — раньше, чем на порталах",
+
+  "about.title": "Меньше, спокойнее — другая студия недвижимости.",
+  "about.subtitle":
+    "Мы намеренно держим небольшой список, чтобы каждый дом и каждый клиент получали должное внимание.",
+  "about.storyTitle": "Основана в 2014 двумя агентами, уставшими от гонки за объёмом.",
+  "about.p1":
+    "Большинство агентств поощряют оборот — выставить как можно больше и быстрее двигаться дальше. Мы хотели обратного: немного домов, за которые действительно ручаемся, продаваемых людьми, которые живут в этих районах.",
+  "about.p2":
+    "Это значит честные цены с первого дня, аккуратная подготовка, фотографии без приукрашивания и один и тот же агент с вами от первого показа до сделки.",
+  "about.p3":
+    "Двенадцать лет спустя мы всё так же работаем — а клиенты приводят друзей, и это единственная метрика, которой мы доверяем.",
+
+  "services.title": "Полный цикл, от и до.",
+  "services.subtitle":
+    "Один закреплённый агент сопровождает вас от первого разговора до последней подписи.",
+  "services.ctaTitle": "Не знаете, с чего начать?",
+  "services.ctaText": "Расскажите, что взвешиваете, и мы подскажем направление — без обязательств.",
+
+  "agentsPage.title": "Агенты, которых вы будете знать по имени.",
+  "agentsPage.subtitle": "Сознательно небольшая команда — каждый живёт в районах, где продаёт.",
+
+  "contacts.title": "Давайте найдём вам хорошее место.",
+  "contacts.subtitle": "Мы отвечаем на всё в течение одного рабочего дня.",
+  "contacts.eyebrow": "Связаться",
+  "contacts.heading": "Давайте найдём вам хорошее место.",
+  "contacts.text":
+    "Запишитесь на просмотр, попросите оценку или просто расскажите, что ищете. Мы отвечаем на всё в течение дня.",
+  "contacts.call": "Позвонить",
+  "contacts.email": "Эл. почта",
+  "contacts.studio": "Офис",
+
+  "properties.eyebrow": "Избранные объекты",
+  "properties.title": "Дома, которые сейчас у нас в работе.",
+  "properties.subtitle":
+    "Небольшой, тщательно отобранный каталог — отфильтруйте до того, что вам действительно нужно.",
+  "properties.buyTitle": "Дома на продажу.",
+  "properties.buySub": "Продуманные дома по честной цене.",
+  "properties.rentTitle": "Дома в аренду.",
+  "properties.rentSub": "Места, где мы бы сами с удовольствием жили.",
+  "properties.luxTitle": "Премиум-коллекция.",
+  "properties.luxSub": "Самые яркие дома из нашего списка — для тех, кто точно знает, чего хочет.",
+  "properties.tabAll": "Все",
+  "properties.tabSale": "Продажа",
+  "properties.tabRent": "Аренда",
+  "properties.tabLux": "Премиум",
+
+  "catalog.search": "Поиск по названию, району или городу…",
+  "catalog.homes": "Объектов: {count}",
+  "catalog.noMatch": "Нет объектов по этим фильтрам",
+  "catalog.noMatchSub": "Попробуйте расширить поиск или сбросить фильтры.",
+  "catalog.clear": "Сбросить",
+  "catalog.anyListing": "Любой тип",
+  "catalog.anyHome": "Любое жильё",
+  "catalog.anyBeds": "Любые спальни",
+  "catalog.beds": "от {n} спален",
+
+  "form.name": "Имя",
+  "form.email": "Эл. почта",
+  "form.phone": "Телефон (необязательно)",
+  "form.interested": "Меня интересует",
+  "form.message": "Сообщение",
+  "form.send": "Отправить",
+  "form.namePh": "Ваше имя",
+  "form.messagePh": "Расскажите, что вы ищете…",
+  "form.kind.general": "Общий вопрос",
+  "form.kind.viewing": "Запись на просмотр",
+  "form.kind.valuation": "Запрос оценки",
+  "form.kind.letting": "Аренда и управление",
+
+  "favorites.eyebrow": "Сохранённое",
+  "favorites.title": "Избранное",
+  "favorites.empty": "Пока ничего нет",
+  "favorites.emptySub":
+    "Нажмите на сердечко у любого объекта, чтобы сохранить его здесь. Избранное хранится приватно в вашем браузере.",
+  "favorites.browse": "Смотреть объекты",
+
+  "footer.tagline":
+    "Бутиковая студия недвижимости на Тихоокеанском Северо-Западе. Меньше объектов — больше внимания.",
+  "footer.explore": "Разделы",
+  "footer.company": "Компания",
+  "footer.studio": "Офис",
+  "footer.social": "Соцсети",
+  "footer.contact": "Контакты",
+  "footer.privacy": "Политика конфиденциальности",
+  "footer.terms": "Условия",
+  "footer.favorites": "Избранное",
+  "footer.rights": "© {year} Grand City",
+  "footer.license": "Лицензированное агентство недвижимости · OR и WA",
+
+  // выпадающие меню в шапке
+  "menu.home.featured": "Избранные объекты",
+  "menu.home.services": "Чем мы занимаемся",
+  "menu.home.agents": "Наши агенты",
+  "menu.home.faq": "Вопросы и ответы",
+  "menu.about.founder": "Руководитель компании",
+  "menu.about.story": "Наша история",
+  "menu.about.numbers": "Компания в цифрах",
+  "menu.about.team": "Вся команда",
+  "menu.agents.complex": "Агенты по жилым комплексам",
+  "menu.agents.home": "Агенты по домам и квартирам",
+  "menu.agents.land": "Агенты по участкам",
+  "menu.agents.all": "Все агенты",
+  "menu.contact.address": "Наш адрес",
+  "menu.contact.request": "Оставить заявку",
+  "agentsPage.noMatch": "По этому направлению агентов пока нет",
+
+  "partners.title": "Компании, с которыми мы сотрудничаем",
+
+  // сертификаты
+  "certs.eyebrow": "Документы",
+  "certs.title": "Сертификаты",
+  "certs.subtitle": "Наши лицензии и сертификаты.",
+  "certs.open": "Перейти",
+  "certs.presTitle": "Презентация компании",
+  "certs.presText": "Краткий обзор: кто мы, чем занимаемся и какие за этим цифры.",
+  "certs.download": "Скачать презентацию",
+  "certs.downloaded": "Презентация скачана ({lang})",
+  "certs.downloadFailed": "Не удалось скачать презентацию. Попробуйте ещё раз.",
+  "certs.galleryTitle": "Сертификаты",
+  "certs.gallerySub": "Нажмите на сертификат, чтобы посмотреть его целиком.",
+  "certs.empty": "Сертификаты пока не опубликованы",
+  "certs.emptySub": "Они появятся здесь, как только их загрузят в админ-панели.",
+  "certs.prev": "Предыдущий сертификат",
+  "certs.next": "Следующий сертификат",
+
+  "docs.title": "Документы",
+  "docs.subtitle": "Сертификаты, лицензии и презентация компании — в одном месте.",
+  "docs.aboutTeaser": "Лицензии, сертификаты и презентация компании — доступны для просмотра и скачивания.",
+  "docs.certsText": "Наши лицензии и сертификаты, можно посмотреть в полном размере.",
+  "docs.presText": "Краткая презентация компании, доступна на четырёх языках.",
+  "certs.pickLang": "Выберите язык",
+  "certs.pickLangSub": "Презентация доступна на всех четырёх языках сайта. Выберите нужный, чтобы скачать.",
+};
+
+const ky: Dict = {
+  "nav.home": "Башкы бет",
+  "nav.properties": "Кыймылсыз мүлк",
+  "nav.services": "Кызматтар",
+  "nav.about": "Компания жөнүндө",
+  "nav.agents": "Агенттер",
+  "nav.contact": "Байланышуу",
+
+  "actions.bookViewing": "Көрүүгө жазылуу",
+  "actions.browse": "Объекттерди көрүү",
+  "actions.talk": "Агент менен сүйлөшүү",
+  "actions.viewAll": "Баарын көрүү ({count}) →",
+  "actions.allProperties": "Бардык объекттер →",
+  "actions.meetTeam": "Команда менен таанышуу →",
+  "actions.moreAbout": "Компания жөнүндө кеңири →",
+  "actions.seeSale": "Сатуу кантип өтөт →",
+  "actions.subscribe": "Жазылуу",
+
+  "navIndex.eyebrow": "Сайттын бөлүмдөрү",
+  "navDesc.home": "Компанияга жана кызматтарга сереп",
+  "navDesc.properties": "Батирлер, үйлөр жана жер тилкелери",
+  "navDesc.services": "Баалоо, бизнес-пландар, сатуу",
+  "navDesc.about": "Биз ким жана кантип иштейбиз",
+  "navDesc.agents": "Сизди коштогон адистер",
+  "navDesc.contact": "Телефон, почта жана офис дареги",
+
+  "common.favorites": "Тандалмалар",
+  "common.language": "Тил",
+
+  "hero.badge": "Бутик кыймылсыз мүлк · 2014-жылдан бери",
+  "hero.titlePre": "Чыныгы",
+  "hero.titleEm": "орун сезими бар үйлөр.",
+  "hero.subtitle":
+    "Тынч океандын түндүк-батышындагы кичинекей агенттер студиясы — ойлуу адамдарга ылайыктуу үйлөрдү тандап, бардык майда-чүйдөсүн өзүбүз чечебиз.",
+  "hero.featured": "Тандалган объект",
+  "hero.rating": "Кардарлардын орточо баасы",
+  "hero.homesPlaced": "2014-жылдан бери сатылган үйлөр",
+  "hero.scroll": "Ылдый сыдырыңыз",
+
+  "stats.homesPlaced": "Сатылган үйлөр",
+  "stats.neighborhoods": "Камтылган райондор",
+  "stats.asking": "Суралган баадан",
+  "stats.rating": "Кардарлардын орточо баасы",
+  "values.local.t": "Жергиликтүү",
+  "values.local.b": "Ар бир агент сатканы жерде жашайт.",
+  "values.honest.t": "Чынчыл",
+  "values.honest.b": "Биринчи күндөн реалдуу сандар.",
+  "values.small.t": "Чакан",
+  "values.small.b": "Эсте кармай турган тизме.",
+
+  "home.about.eyebrow": "Студия жөнүндө",
+  "home.about.title": "Ар бир объектке өз дарегибиздей карайбыз.",
+  "home.about.p1":
+    "Grand City көлөмдү кууганга чарчаган эки агенттен башталган. Биз тизмени атайын чакан кармайбыз — азыраак үй, көбүрөөк көңүл жана биринчи көрүүдөн бүтүмгө чейин бир эле адам.",
+  "home.about.p2":
+    "Натыйжада кыймылсыз мүлк тынчыраак болот: чынчыл баа, кылдат даярдоо жана чындап сизден алгысы келген сатып алуучулар.",
+  "home.about.badgeText": "адамдарга өзүнүкүндөй сезилген орунду табууга жардам берип жатабыз.",
+
+  "home.featured.eyebrow": "Тандалган объекттер",
+  "home.featured.title": "Азыр бизде турган үйлөр",
+  "home.services.eyebrow": "Эмне кылабыз",
+  "home.services.title": "Башынан аягына чейин толук кызмат",
+  "home.services.subtitle":
+    "Бир дайындалган агент сизди биринчи сүйлөшүүдөн акыркы кол коюуга чейин коштоп жүрөт — төрт багыттын баарында.",
+  "home.agents.eyebrow": "Адамдар",
+  "home.agents.title": "Аты-жөнү менен тааныган агенттер",
+  "home.latest.eyebrow": "Жаңы кошулду",
+  "home.latest.title": "Эң жаңы сунуштар",
+  "home.faq.eyebrow": "Суроолор",
+  "home.faq.title": "Адамдар көп берген суроолор",
+  "home.cta.eyebrow": "Байланышуу",
+  "home.cta.title": "Сизге жакшы жай табалы.",
+  "home.cta.subtitle":
+    "Көрүүгө жазылыңыз, баа сураңыз же эмне издегениңизди айтыңыз. Баарына бир күндүн ичинде жооп беребиз.",
+  "home.cta.orCall": "же чалыңыз",
+  "home.news.eyebrow": "Кабардар болуңуз",
+  "home.news.title": "Жаңы объекттер — порталдарга чыкканга чейин",
+
+  "about.title": "Чакан, тынчыраак — башкача кыймылсыз мүлк студиясы.",
+  "about.subtitle":
+    "Тизмени атайын чакан кармайбыз — ар бир үй жана ар бир кардар тийиштүү көңүл алышы үчүн.",
+  "about.storyTitle": "2014-жылы көлөмдү кууганга чарчаган эки агент негиздеген.",
+  "about.p1":
+    "Көпчүлүк агенттиктер айланманы баалайт — мүмкүн болушунча көп коюп, тез жылып кетет. Биз тескерисин кааладык: чындап ишенген аз гана үй, аларды сатканы жашаган агенттер сатат.",
+  "about.p2":
+    "Бул биринчи күндөн чынчыл баа, кылдат даярдоо, көркөмдөбөгөн сүрөттөр жана биринчи көрүүдөн бүтүмгө чейин бир эле агент дегенди билдирет.",
+  "about.p3":
+    "Он эки жылдан кийин дагы ушинтип иштейбиз — кардарлар досторун жиберип турат, бул биз ишенген жалгыз көрсөткүч.",
+
+  "services.title": "Башынан аягына чейин толук кызмат.",
+  "services.subtitle":
+    "Бир дайындалган агент сизди биринчи сүйлөшүүдөн акыркы кол коюуга чейин коштойт.",
+  "services.ctaTitle": "Кайдан баштоону билбейсизби?",
+  "services.ctaText": "Эмнени ойлонуп жатканыңызды айтыңыз, биз багыт көрсөтөбүз — милдеттенмесиз.",
+
+  "agentsPage.title": "Аты-жөнү менен тааныган агенттер.",
+  "agentsPage.subtitle": "Атайын чакан команда — ар бири сатканы райондо жашайт.",
+
+  "contacts.title": "Сизге жакшы жай табалы.",
+  "contacts.subtitle": "Баарына бир жумуш күндүн ичинде жооп беребиз.",
+  "contacts.eyebrow": "Байланышуу",
+  "contacts.heading": "Сизге жакшы жай табалы.",
+  "contacts.text":
+    "Көрүүгө жазылыңыз, баа сураңыз же эмне издегениңизди айтыңыз. Баарына бир күндүн ичинде жооп беребиз.",
+  "contacts.call": "Чалуу",
+  "contacts.email": "Электрондук почта",
+  "contacts.studio": "Офис",
+
+  "properties.eyebrow": "Тандалган объекттер",
+  "properties.title": "Азыр бизде турган үйлөр.",
+  "properties.subtitle": "Чакан, кылдат тандалган каталог — чындап керектүүсүнө чейин чыпкалаңыз.",
+  "properties.buyTitle": "Сатуудагы үйлөр.",
+  "properties.buySub": "Ойлуу үйлөр, чынчыл баада.",
+  "properties.rentTitle": "Ижарага үйлөр.",
+  "properties.rentSub": "Өзүбүз да жашагыбыз келген жайлар.",
+  "properties.luxTitle": "Люкс коллекция.",
+  "properties.luxSub": "Тизмебиздеги эң өзгөчө үйлөр — эмнени каалаганын так билгендер үчүн.",
+  "properties.tabAll": "Баары",
+  "properties.tabSale": "Сатууда",
+  "properties.tabRent": "Ижарага",
+  "properties.tabLux": "Люкс",
+
+  "catalog.search": "Аталышы, району же шаары боюнча издөө…",
+  "catalog.homes": "Объекттер: {count}",
+  "catalog.noMatch": "Бул чыпкалар боюнча үй жок",
+  "catalog.noMatchSub": "Издөөнү кеңейтип же чыпкаларды тазалап көрүңүз.",
+  "catalog.clear": "Тазалоо",
+  "catalog.anyListing": "Каалаган түрү",
+  "catalog.anyHome": "Каалаган жай",
+  "catalog.anyBeds": "Каалаган бөлмө",
+  "catalog.beds": "{n}+ бөлмө",
+
+  "form.name": "Аты",
+  "form.email": "Электрондук почта",
+  "form.phone": "Телефон (милдеттүү эмес)",
+  "form.interested": "Мени кызыктырат",
+  "form.message": "Билдирүү",
+  "form.send": "Жөнөтүү",
+  "form.namePh": "Атыңыз",
+  "form.messagePh": "Эмне издегениңизди жазыңыз…",
+  "form.kind.general": "Жалпы суроо",
+  "form.kind.viewing": "Көрүүгө жазылуу",
+  "form.kind.valuation": "Баа суроо",
+  "form.kind.letting": "Ижара жана башкаруу",
+
+  "favorites.eyebrow": "Сакталган",
+  "favorites.title": "Тандалмалар",
+  "favorites.empty": "Азырынча эч нерсе жок",
+  "favorites.emptySub":
+    "Объекттеги жүрөкчөнү басып, бул жерге сактаңыз. Тандалмалар браузериңизде купуя сакталат.",
+  "favorites.browse": "Объекттерди көрүү",
+
+  "footer.tagline":
+    "Тынч океандын түндүк-батышындагы бутик кыймылсыз мүлк студиясы. Аз объект — көбүрөөк көңүл.",
+  "footer.explore": "Бөлүмдөр",
+  "footer.company": "Компания",
+  "footer.studio": "Офис",
+  "footer.social": "Социалдык тармактар",
+  "footer.contact": "Байланыш",
+  "footer.privacy": "Купуялык саясаты",
+  "footer.terms": "Шарттар",
+  "footer.favorites": "Тандалмалар",
+  "footer.rights": "© {year} Grand City",
+  "footer.license": "Лицензияланган кыймылсыз мүлк агенттиги · OR жана WA",
+
+  // баштагы ачылуучу менюлар
+  "menu.home.featured": "Тандалган объекттер",
+  "menu.home.services": "Эмне менен алектенебиз",
+  "menu.home.agents": "Биздин агенттер",
+  "menu.home.faq": "Суроолор жана жооптор",
+  "menu.about.founder": "Компаниянын жетекчиси",
+  "menu.about.story": "Биздин тарых",
+  "menu.about.numbers": "Компания сандарда",
+  "menu.about.team": "Бүт команда",
+  "menu.agents.complex": "Турак жай комплекстери боюнча агенттер",
+  "menu.agents.home": "Үйлөр жана батирлер боюнча агенттер",
+  "menu.agents.land": "Жер участоктору боюнча агенттер",
+  "menu.agents.all": "Бардык агенттер",
+  "menu.contact.address": "Биздин дарек",
+  "menu.contact.request": "Арыз калтыруу",
+  "agentsPage.noMatch": "Бул багыт боюнча агенттер азырынча жок",
+
+  "partners.title": "Биз кызматташкан компаниялар",
+
+  // сертификаттар
+  "certs.eyebrow": "Документтер",
+  "certs.title": "Сертификаттар",
+  "certs.subtitle": "Биздин лицензиялар менен сертификаттар.",
+  "certs.open": "Ачуу",
+  "certs.presTitle": "Компаниянын презентациясы",
+  "certs.presText": "Кыскача сереп: биз кимбиз, эмне кылабыз жана анын артындагы сандар.",
+  "certs.download": "Презентацияны жүктөө",
+  "certs.downloaded": "Презентация жүктөлдү ({lang})",
+  "certs.downloadFailed": "Презентацияны жүктөө мүмкүн болбоду. Кайра аракет кылыңыз.",
+  "certs.galleryTitle": "Сертификаттар",
+  "certs.gallerySub": "Толук көрүү үчүн сертификатты басыңыз.",
+  "certs.empty": "Сертификаттар азырынча жарыяланган жок",
+  "certs.emptySub": "Алар админ-панелде жүктөлгөндөн кийин ушул жерде пайда болот.",
+  "certs.prev": "Мурунку сертификат",
+  "certs.next": "Кийинки сертификат",
+
+  "docs.title": "Документтер",
+  "docs.subtitle": "Сертификаттар, лицензиялар жана компаниянын презентациясы — бир жерде.",
+  "docs.aboutTeaser": "Лицензиялар, сертификаттар жана компаниянын презентациясы — көрүүгө жана жүктөөгө жеткиликтүү.",
+  "docs.certsText": "Биздин лицензиялар менен сертификаттар, толук өлчөмдө көрүүгө болот.",
+  "docs.presText": "Компаниянын кыскача презентациясы, төрт тилде жеткиликтүү.",
+  "certs.pickLang": "Тилди тандаңыз",
+  "certs.pickLangSub": "Презентация сайттын төрт тилинде тең бар. Жүктөө үчүн тилди тандаңыз.",
+};
+
+const zh: Dict = {
+  "nav.home": "首页",
+  "nav.properties": "房产",
+  "nav.services": "服务",
+  "nav.about": "关于我们",
+  "nav.agents": "顾问团队",
+  "nav.contact": "联系我们",
+
+  "actions.bookViewing": "预约看房",
+  "actions.browse": "浏览房源",
+  "actions.talk": "联系顾问",
+  "actions.viewAll": "查看全部（{count}）→",
+  "actions.allProperties": "全部房源 →",
+  "actions.meetTeam": "认识团队 →",
+  "actions.moreAbout": "了解更多 →",
+  "actions.seeSale": "了解交易流程 →",
+  "actions.subscribe": "订阅",
+
+  "navIndex.eyebrow": "网站导航",
+  "navDesc.home": "公司与服务概览",
+  "navDesc.properties": "公寓、住宅与地块",
+  "navDesc.services": "评估、商业计划与销售",
+  "navDesc.about": "我们是谁，如何工作",
+  "navDesc.agents": "为您服务的团队",
+  "navDesc.contact": "电话、邮箱与办公地址",
+
+  "common.favorites": "收藏",
+  "common.language": "语言",
+
+  "hero.badge": "精品房产 · 成立于 2014 年",
+  "hero.titlePre": "真正有",
+  "hero.titleEm": "归属感的家。",
+  "hero.subtitle":
+    "一家位于太平洋西北地区的小型顾问工作室，为用心的人匹配用心的房子，并处理其间的每一个细节。",
+  "hero.featured": "推荐房源",
+  "hero.rating": "客户平均评分",
+  "hero.homesPlaced": "自 2014 年成交房屋",
+  "hero.scroll": "向下滚动",
+
+  "stats.homesPlaced": "成交房屋",
+  "stats.neighborhoods": "覆盖社区",
+  "stats.asking": "达成挂牌价比例",
+  "stats.rating": "客户平均评分",
+  "values.local.t": "本地",
+  "values.local.b": "每位顾问都住在自己经手的片区。",
+  "values.honest.t": "诚实",
+  "values.honest.b": "从第一天起就给出真实的数字。",
+  "values.small.t": "精简",
+  "values.small.b": "一份我们记得住的房源清单。",
+
+  "home.about.eyebrow": "关于工作室",
+  "home.about.title": "我们把每一套房子都当成自己的家来对待。",
+  "home.about.p1":
+    "Grand City 由两位厌倦了走量模式的顾问创立。我们刻意保持房源精简——房子更少，投入更多，从第一次看房到成交都由同一个人负责。",
+  "home.about.p2": "结果是一种更从容的房产体验：定价诚实、布置用心，买家也真正想要你所出售的东西。",
+  "home.about.badgeText": "帮助人们找到真正属于自己的地方。",
+
+  "home.featured.eyebrow": "精选房源",
+  "home.featured.title": "我们目前在售的房子",
+  "home.services.eyebrow": "我们做什么",
+  "home.services.title": "全流程一站式服务",
+  "home.services.subtitle":
+    "从第一次沟通到最后一次签字，都由同一位专属顾问陪伴——覆盖我们的全部四项业务。",
+  "home.agents.eyebrow": "团队",
+  "home.agents.title": "真正叫得出名字的顾问",
+  "home.latest.eyebrow": "最新上架",
+  "home.latest.title": "刚刚到我们手上的房源",
+  "home.faq.eyebrow": "常见问题",
+  "home.faq.title": "大家最先问到的问题",
+  "home.cta.eyebrow": "联系我们",
+  "home.cta.title": "让我们为您找到合适的地方。",
+  "home.cta.subtitle":
+    "预约看房、申请估价，或者只是告诉我们您在找什么。所有咨询我们都会在一天内回复。",
+  "home.cta.orCall": "或致电",
+  "home.news.eyebrow": "保持关注",
+  "home.news.title": "新房源，抢在门户网站之前",
+
+  "about.title": "更小、更从容的房产工作室。",
+  "about.subtitle": "我们刻意保持房源精简——让每一套房子、每一位客户都得到应有的关注。",
+  "about.storyTitle": "2014 年由两位厌倦走量模式的顾问创立。",
+  "about.p1":
+    "大多数中介奖励周转——尽可能多地挂牌，然后迅速转向下一单。我们想要相反的东西：数量不多但我们真正敢于背书的房子，由真正住在这些片区的人来出售。",
+  "about.p2":
+    "这意味着从第一天起就诚实定价、用心布置、拍出好看但不失真的照片，并由同一位专属顾问从第一次看房陪到成交当天。",
+  "about.p3": "十二年过去，我们依然如此——客户不断介绍朋友前来，这是我们唯一真正信任的指标。",
+
+  "services.title": "全流程一站式服务。",
+  "services.subtitle": "从第一次沟通到最后一次签字，都由同一位专属顾问陪伴。",
+  "services.ctaTitle": "不知道从哪里开始？",
+  "services.ctaText": "告诉我们您正在权衡什么，我们会为您指明方向——没有任何义务。",
+
+  "agentsPage.title": "真正叫得出名字的顾问。",
+  "agentsPage.subtitle": "一支刻意保持精简的团队——每位顾问都住在自己经手的片区。",
+
+  "contacts.title": "让我们为您找到合适的地方。",
+  "contacts.subtitle": "所有咨询我们都会在一个工作日内回复。",
+  "contacts.eyebrow": "联系我们",
+  "contacts.heading": "让我们为您找到合适的地方。",
+  "contacts.text": "预约看房、申请估价，或者只是告诉我们您在找什么。所有咨询我们都会在一天内回复。",
+  "contacts.call": "致电我们",
+  "contacts.email": "电子邮件",
+  "contacts.studio": "办公室",
+
+  "properties.eyebrow": "精选房源",
+  "properties.title": "我们目前在售的房子。",
+  "properties.subtitle": "一份精挑细选的小型目录——筛选出您真正想要的。",
+  "properties.buyTitle": "在售房源。",
+  "properties.buySub": "用心挑选的房子，价格诚实。",
+  "properties.rentTitle": "出租房源。",
+  "properties.rentSub": "我们自己也乐意住的地方。",
+  "properties.luxTitle": "豪华系列。",
+  "properties.luxSub": "我们清单中最具特色的房子——献给清楚知道自己要什么的买家。",
+  "properties.tabAll": "全部",
+  "properties.tabSale": "出售",
+  "properties.tabRent": "出租",
+  "properties.tabLux": "豪华",
+
+  "catalog.search": "按名称、社区或城市搜索…",
+  "catalog.homes": "共 {count} 套",
+  "catalog.noMatch": "没有符合筛选条件的房源",
+  "catalog.noMatchSub": "试试放宽搜索条件或清除筛选。",
+  "catalog.clear": "清除",
+  "catalog.anyListing": "不限类型",
+  "catalog.anyHome": "不限房型",
+  "catalog.anyBeds": "不限卧室",
+  "catalog.beds": "{n} 间以上卧室",
+
+  "form.name": "姓名",
+  "form.email": "电子邮件",
+  "form.phone": "电话（选填）",
+  "form.interested": "我感兴趣的是",
+  "form.message": "留言",
+  "form.send": "发送留言",
+  "form.namePh": "您的姓名",
+  "form.messagePh": "告诉我们您在找什么…",
+  "form.kind.general": "一般咨询",
+  "form.kind.viewing": "预约看房",
+  "form.kind.valuation": "申请估价",
+  "form.kind.letting": "租赁与管理",
+
+  "favorites.eyebrow": "已保存",
+  "favorites.title": "我的收藏",
+  "favorites.empty": "还没有收藏",
+  "favorites.emptySub": "点击任意房源上的爱心即可保存到这里。收藏仅私密保存在您的浏览器中。",
+  "favorites.browse": "浏览房源",
+
+  "footer.tagline": "太平洋西北地区的精品房产工作室。房源更少，投入更多。",
+  "footer.explore": "导航",
+  "footer.company": "公司",
+  "footer.studio": "办公室",
+  "footer.social": "社交媒体",
+  "footer.contact": "联系方式",
+  "footer.privacy": "隐私政策",
+  "footer.terms": "使用条款",
+  "footer.favorites": "收藏",
+  "footer.rights": "© {year} Grand City",
+  "footer.license": "持牌房地产经纪机构 · OR 与 WA",
+
+  // 顶部悬停菜单
+  "menu.home.featured": "精选房源",
+  "menu.home.services": "我们的业务",
+  "menu.home.agents": "我们的顾问",
+  "menu.home.faq": "常见问题",
+  "menu.about.founder": "公司负责人",
+  "menu.about.story": "我们的故事",
+  "menu.about.numbers": "数据中的公司",
+  "menu.about.team": "全部团队",
+  "menu.agents.complex": "住宅综合体顾问",
+  "menu.agents.home": "公寓与住宅顾问",
+  "menu.agents.land": "地块顾问",
+  "menu.agents.all": "全部顾问",
+  "menu.contact.address": "我们的地址",
+  "menu.contact.request": "提交需求",
+  "agentsPage.noMatch": "该方向暂无顾问",
+
+  "partners.title": "我们的合作伙伴",
+
+  // 证书
+  "certs.eyebrow": "资质文件",
+  "certs.title": "资质证书",
+  "certs.subtitle": "我们的执照与资质证书。",
+  "certs.open": "查看",
+  "certs.presTitle": "公司介绍",
+  "certs.presText": "简要介绍我们是谁、做什么，以及背后的数据。",
+  "certs.download": "下载公司介绍",
+  "certs.downloaded": "公司介绍已下载（{lang}）",
+  "certs.downloadFailed": "下载失败，请重试。",
+  "certs.galleryTitle": "资质证书",
+  "certs.gallerySub": "点击任意证书可查看大图。",
+  "certs.empty": "暂未发布资质证书",
+  "certs.emptySub": "在后台上传后即会显示在此处。",
+  "certs.prev": "上一张证书",
+  "certs.next": "下一张证书",
+
+  "docs.title": "资质文件",
+  "docs.subtitle": "资质证书、执照与公司介绍——集中在此。",
+  "docs.aboutTeaser": "执照、资质证书与公司介绍——可在线查看并下载。",
+  "docs.certsText": "我们的执照与资质证书，可查看大图。",
+  "docs.presText": "简明公司介绍，提供四种语言版本下载。",
+  "certs.pickLang": "选择语言",
+  "certs.pickLangSub": "公司介绍提供本站全部四种语言版本，请选择一种下载。",
+};
+
+export const dictionaries: Record<LanguageCode, Dict> = {
+  en: { ...en, ...content.en },
+  ru: { ...ru, ...content.ru },
+  ky: { ...ky, ...content.ky },
+  zh: { ...zh, ...content.zh },
+};

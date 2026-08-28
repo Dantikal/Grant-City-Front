@@ -1,0 +1,106 @@
+/* Keyframes ported from the original prototype + a few reusable utilities.
+   Framer Motion handles most entrance animation; these cover CSS-only effects. */
+
+@keyframes noRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes noRiseSm {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes floatA {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes floatB {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(11px);
+  }
+}
+@keyframes heroZoom {
+  from {
+    transform: scale(1.09);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.anim-hero-zoom {
+  animation: heroZoom 16s ease-out both;
+}
+.anim-float-a {
+  animation: floatA 6.5s ease-in-out infinite;
+}
+.anim-float-b {
+  animation: floatB 7.5s ease-in-out infinite;
+}
+.anim-shimmer {
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+
+/* animated underline used on nav + text links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 0;
+  background: var(--brand-accent);
+  transition: width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-hero-zoom,
+  .anim-float-a,
+  .anim-float-b,
+  .anim-shimmer {
+    animation: none !important;
+  }
+}
