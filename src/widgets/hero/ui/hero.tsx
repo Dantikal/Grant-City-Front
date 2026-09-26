@@ -1,9 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Property } from "@/entities/property";
 import { ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "@/shared/i18n";
@@ -13,28 +11,15 @@ import { Button } from "@/shared/ui/button";
 const EASE = [0.2, 0.7, 0.2, 1] as const;
 
 export function Hero({ featured }: { featured?: Property | null }) {
-  const ref = useRef<HTMLElement>(null);
   const { t } = useTranslation();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const parallax = useTransform(scrollYProgress, [0, 1], [0, 160]);
 
   return (
-    <section
-      ref={ref}
-      className="bg-brand-ink relative h-[90vh] max-h-[920px] min-h-[640px] overflow-hidden"
-    >
-      <motion.div style={{ y: parallax }} className="absolute -inset-x-0 -top-[6%] h-[112%]">
-        <Image
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80"
-          alt="A considered home at dusk"
-          fill
-          priority
-          className="anim-hero-zoom object-cover"
-        />
-      </motion.div>
-      <div className="from-brand-ink/85 via-brand-ink/55 to-brand-ink/10 absolute inset-0 bg-gradient-to-r" />
-      <div className="from-brand-ink/55 absolute inset-0 bg-gradient-to-t to-transparent" />
-
+    <section className="bg-brand-ink relative h-[90vh] max-h-[920px] min-h-[640px] overflow-hidden">
+      {/* The photo moved to the properties section; the hero keeps a quiet brand backdrop. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_15%,rgb(34_197_94/0.22),transparent_55%),radial-gradient(ellipse_at_10%_90%,rgb(245_158_11/0.16),transparent_50%)]"
+      />
       <div className="relative z-30 mx-auto flex h-full max-w-[1240px] flex-col justify-center px-6 pb-0 md:px-12 md:pb-40">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -86,7 +71,7 @@ export function Hero({ featured }: { featured?: Property | null }) {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="absolute top-[120px] right-14 z-20 hidden w-[280px] lg:block"
+          className="absolute top-[120px] right-14 z-40 hidden w-[280px] lg:block"
         >
           <Link
             href={ROUTES.property(featured.slug)}

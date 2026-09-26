@@ -36,6 +36,11 @@ export function socialIcon(label: string) {
   return ICONS[label.toLowerCase()] ?? Link2;
 }
 
+/** Full accessible name of a social link, e.g. "Instagram @bizness.expert". */
+export function socialName(s: { label: string; handle?: string }) {
+  return s.handle ? `${s.label} ${s.handle}` : s.label;
+}
+
 /** Icon links for every entry of `appConfig.social`. */
 export function SocialLinks({
   className,
@@ -52,12 +57,12 @@ export function SocialLinks({
         const Icon = socialIcon(s.label);
         return (
           <a
-            key={s.label}
+            key={s.href}
             href={s.href}
             target="_blank"
             rel="noreferrer"
-            aria-label={s.label}
-            title={s.label}
+            aria-label={socialName(s)}
+            title={socialName(s)}
             className={cn(
               "text-muted-foreground hover:text-foreground hover:bg-accent grid size-8 place-items-center rounded-full transition-colors",
               linkClassName,

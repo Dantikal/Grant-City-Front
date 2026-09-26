@@ -13,4 +13,8 @@ export interface Agent {
   salesCount: number;
   rating: number;
   since: number;
+  /** valuation | planning | sales — CRM leads are routed by it. */
+  department?: Department | null;
 }
+
+export type Department = "valuation" | "planning" | "sales";

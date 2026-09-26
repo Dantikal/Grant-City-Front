@@ -88,6 +88,7 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ id
           <div className="mt-8">
             <ContactAgentDialog
               agentName={agent.name}
+              agentId={agent.id}
               variant="lime"
               triggerLabel={t("ad.message", { name: firstName })}
             />

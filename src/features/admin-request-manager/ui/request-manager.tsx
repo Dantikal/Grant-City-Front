@@ -19,7 +19,10 @@ import { formatDate } from "@/shared/lib/format-date";
 const statusVariant: Record<RequestStatus, "lime" | "amber" | "muted"> = {
   new: "lime",
   "in-progress": "amber",
-  closed: "muted",
+  meeting: "amber",
+  contract: "amber",
+  won: "muted",
+  lost: "muted",
 };
 
 export function RequestManager() {

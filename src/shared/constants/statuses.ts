@@ -8,11 +8,15 @@ export const PROPERTY_STATUS_LABELS: Record<PropertyStatus, string> = {
   sold: "Sold",
 };
 
-export const REQUEST_STATUSES = ["new", "in-progress", "closed"] as const;
+/** CRM pipeline stages, in board order. A request's `status` is its stage. */
+export const REQUEST_STATUSES = ["new", "in-progress", "meeting", "contract", "won", "lost"] as const;
 export type RequestStatus = (typeof REQUEST_STATUSES)[number];
 
 export const REQUEST_STATUS_LABELS: Record<RequestStatus, string> = {
-  new: "New",
-  "in-progress": "In progress",
-  closed: "Closed",
+  new: "Новая",
+  "in-progress": "В работе",
+  meeting: "Встреча / показ",
+  contract: "Договор",
+  won: "Успешно",
+  lost: "Отказ",
 };

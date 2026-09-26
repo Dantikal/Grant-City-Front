@@ -24,6 +24,16 @@ export const ENDPOINTS = {
   requests: "/requests",
   request: (id: number | string) => `/requests/${id}`,
 
+  // CRM (admin only)
+  crmSummary: "/crm/summary",
+  crmLeads: "/crm/leads",
+  crmLead: (id: number | string) => `/crm/leads/${id}`,
+  crmLeadNotes: (id: number | string) => `/crm/leads/${id}/notes`,
+  crmLeadTasks: (id: number | string) => `/crm/leads/${id}/tasks`,
+  crmTasks: "/crm/tasks",
+  crmTask: (id: number | string) => `/crm/tasks/${id}`,
+  crmTelegramTest: "/crm/telegram/test",
+
   // media
   uploads: "/uploads",
 } as const;

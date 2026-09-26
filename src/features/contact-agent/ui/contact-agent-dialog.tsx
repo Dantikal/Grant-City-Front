@@ -15,10 +15,16 @@ import {
 
 export function ContactAgentDialog({
   agentName,
+  agentId,
+  propertyId,
   triggerLabel = "Contact agent",
   variant = "default",
 }: {
   agentName?: string;
+  /** The CRM assigns the lead to this employee. */
+  agentId?: string;
+  /** The property the question is about, if any. */
+  propertyId?: string;
   triggerLabel?: string;
   variant?: ButtonProps["variant"];
 }) {
@@ -40,7 +46,11 @@ export function ContactAgentDialog({
             day.
           </ModalDescription>
         </ModalHeader>
-        <RequestForm defaultKind="general" onSuccess={() => setOpen(false)} />
+        <RequestForm
+          defaultKind="general"
+          context={{ agentId, propertyId }}
+          onSuccess={() => setOpen(false)}
+        />
       </ModalContent>
     </Modal>
   );

@@ -1,30 +1,30 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  Award,
   Building2,
   ChartColumn,
-  Compass,
   Landmark,
   PhoneCall,
   Users,
   type LucideIcon,
 } from "lucide-react";
-import { NAV_ITEMS } from "@/shared/constants/nav";
+import { SHORTCUT_ITEMS } from "@/shared/constants/nav";
 import { getT } from "@/shared/i18n/server";
 import { Reveal, RevealGroup, RevealItem } from "@/shared/ui/reveal";
 import { cn } from "@/shared/lib/cn";
 
-/** Keyed by nav key so it stays in step with NAV_ITEMS. */
+/** Keyed by label key so it stays in step with SHORTCUT_ITEMS. */
 const ICONS: Record<string, LucideIcon> = {
-  "nav.home": Compass,
-  "nav.properties": Building2,
   "nav.services": ChartColumn,
+  "nav.properties": Building2,
   "nav.about": Landmark,
+  "certs.title": Award,
   "nav.agents": Users,
   "nav.contact": PhoneCall,
 };
 
-/** The header's navigation, repeated under the hero as a two-column index.
+/** Six key sections of the site, laid out under the hero as a two-column index.
  *  Built in the same language as the services grid — hairline rules on the page
  *  background, gold accents, serif titles — so it reads as part of the page
  *  rather than a panel dropped onto it. Also the primary way in on a phone,
@@ -39,7 +39,7 @@ export async function NavShortcuts() {
       </Reveal>
 
       <RevealGroup className="grid gap-4 sm:grid-cols-2">
-        {NAV_ITEMS.map((item) => {
+        {SHORTCUT_ITEMS.map((item) => {
           const Icon = ICONS[item.key];
           return (
             <RevealItem key={item.href} className="h-full">

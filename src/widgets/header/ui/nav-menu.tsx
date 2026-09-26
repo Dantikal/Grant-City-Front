@@ -10,7 +10,7 @@ import { NAV_MENUS, type NavMenu } from "@/shared/constants/nav-menu";
 import { ROUTES } from "@/shared/constants/routes";
 import { appConfig } from "@/shared/config/app.config";
 import { useTranslation } from "@/shared/i18n";
-import { socialIcon } from "@/shared/ui/social-links";
+import { socialIcon, socialName } from "@/shared/ui/social-links";
 import { cn } from "@/shared/lib/cn";
 
 /** Grace period so the pointer can travel from the trigger into the panel. */
@@ -49,7 +49,7 @@ export function NavMenu({ className }: { className?: string }) {
     href === ROUTES.home ? pathname === href : pathname.startsWith(href);
 
   return (
-    <nav className={cn("items-center justify-center gap-7", className)}>
+    <nav className={cn("items-center justify-center gap-5", className)}>
       {NAV_ITEMS.map((item) => {
         const menu: NavMenu | undefined = NAV_MENUS[item.href];
         const isOpen = openHref === item.href;
@@ -72,7 +72,7 @@ export function NavMenu({ className }: { className?: string }) {
               aria-haspopup={menu ? "true" : undefined}
               aria-expanded={menu ? isOpen : undefined}
               className={cn(
-                "flex items-center gap-1 py-2 text-[15px] font-bold tracking-[0.01em] whitespace-nowrap transition-colors",
+                "flex items-center gap-1 py-2 text-[14px] font-bold 2xl:text-[15px] tracking-[0.01em] whitespace-nowrap transition-colors",
                 isActive(item.href)
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
@@ -143,20 +143,22 @@ function MenuPanel({ menu, onNavigate }: { menu: NavMenu; onNavigate: () => void
         {menu.withSocial ? (
           <>
             {menu.links.length > 0 ? <div className="bg-border my-2 h-px" /> : null}
-            <div className="grid grid-cols-2 gap-1">
+            <div className="grid min-w-[220px] gap-0.5">
               {appConfig.social.map((s) => {
                 const Icon = socialIcon(s.label);
                 return (
                   <a
-                    key={s.label}
+                    key={s.href}
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
                     onClick={onNavigate}
-                    className="hover:bg-accent flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors"
+                    aria-label={socialName(s)}
+                    title={socialName(s)}
+                    className="hover:bg-accent flex min-w-0 items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors"
                   >
                     <Icon className="text-brand-accent size-4 shrink-0" />
-                    {s.label}
+                    <span className="truncate">{s.handle ?? s.label}</span>
                   </a>
                 );
               })}

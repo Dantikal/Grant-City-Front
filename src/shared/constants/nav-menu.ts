@@ -19,7 +19,7 @@ export interface NavMenu {
 
 /** Service slugs mirror `SERVICES` in the service entity — kept as literals here so
  *  `shared` does not reach up into `entities`. */
-const SERVICE_SLUGS = ["buying", "selling", "letting", "management"] as const;
+const SERVICE_SLUGS = ["land", "business-plans", "valuation", "sales"] as const;
 
 /** Hover panels for the header nav, keyed by the nav item's href. Every nav item
  *  in `NAV_ITEMS` that should open a panel needs an entry here. */
@@ -53,20 +53,18 @@ export const NAV_MENUS: Record<string, NavMenu> = {
 
   [ROUTES.about]: {
     links: [
-      { key: "menu.about.founder", href: `${ROUTES.about}#founder` },
       { key: "menu.about.story", href: `${ROUTES.about}#story` },
       { key: "menu.about.numbers", href: `${ROUTES.about}#numbers` },
-      { key: "docs.title", href: ROUTES.aboutDocuments },
+      { key: "menu.about.founder", href: `${ROUTES.about}#founder` },
       { key: "menu.about.team", href: ROUTES.agents },
+      { key: "docs.title", href: ROUTES.aboutDocuments },
     ],
   },
 
-  [ROUTES.agents]: {
+  [ROUTES.experience]: {
     links: [
-      { key: "menu.agents.complex", href: `${ROUTES.agents}?focus=complex` },
-      { key: "menu.agents.home", href: `${ROUTES.agents}?focus=home` },
-      { key: "menu.agents.land", href: `${ROUTES.agents}?focus=land` },
-      { key: "menu.agents.all", href: ROUTES.agents },
+      { key: "menu.experience.history", href: `${ROUTES.experience}#history` },
+      { key: "menu.experience.orders", href: `${ROUTES.experience}#orders` },
     ],
   },
 

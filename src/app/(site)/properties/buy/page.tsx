@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { PropertyCatalog, PropertyTabs } from "@/widgets/property-catalog";
+import { PropertyBanner, PropertyCatalog, PropertyTabs } from "@/widgets/property-catalog";
 import { ROUTES } from "@/shared/constants/routes";
 import { getT } from "@/shared/i18n/server";
-import { PageIntro } from "@/shared/ui/page-intro";
 
 export const metadata: Metadata = {
   title: "Homes for sale",
@@ -13,7 +12,7 @@ export default async function BuyPage() {
   const { t } = await getT();
   return (
     <>
-      <PageIntro
+      <PropertyBanner
         eyebrow={t("properties.tabSale")}
         title={t("properties.buyTitle")}
         subtitle={t("properties.buySub")}

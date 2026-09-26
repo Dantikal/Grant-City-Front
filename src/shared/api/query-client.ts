@@ -31,4 +31,6 @@ export const queryKeys = {
   presentations: () => ["presentations"] as const,
   favorites: () => ["favorites"] as const,
   requests: () => ["requests"] as const,
+  crm: () => ["crm"] as const,
+  crmLead: (id: number | string) => ["crm", "lead", String(id)] as const,
 };

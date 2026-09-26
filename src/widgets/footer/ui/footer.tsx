@@ -30,6 +30,7 @@ export function Footer() {
               <FooterLink href={ROUTES.properties}>{t("nav.properties")}</FooterLink>
               <FooterLink href={ROUTES.services}>{t("nav.services")}</FooterLink>
               <FooterLink href={ROUTES.about}>{t("nav.about")}</FooterLink>
+              <FooterLink href={ROUTES.experience}>{t("nav.experience")}</FooterLink>
               <FooterLink href={ROUTES.agents}>{t("nav.agents")}</FooterLink>
             </FooterCol>
             <FooterCol title={t("footer.company")}>
@@ -49,13 +50,14 @@ export function Footer() {
             <FooterCol title={t("footer.social")}>
               {appConfig.social.map((s) => (
                 <a
-                  key={s.label}
+                  key={s.href}
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
                   className="link-underline w-fit text-sm transition-colors hover:text-white"
                 >
                   {s.label}
+                  {s.handle ? <span className="text-[#7a7a7a]"> {s.handle}</span> : null}
                 </a>
               ))}
             </FooterCol>
