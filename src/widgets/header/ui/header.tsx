@@ -17,7 +17,7 @@ export function Header() {
 
   return (
     <header className="border-border bg-background/80 sticky top-0 z-50 border-b backdrop-blur-md">
-      <div className="flex items-center gap-6 px-6 py-4 md:px-12 md:py-4">
+      <div className="flex items-center gap-6 px-6 py-4 md:px-12 md:py-4 xl:gap-4 xl:px-8 2xl:gap-6 2xl:px-12">
         {/* Decorated logo */}
         <Link href={ROUTES.home} className="group flex items-center gap-2.5">
           <span className="bg-brand-green grid size-8 place-items-center rounded-lg font-serif text-lg font-bold text-white shadow-sm transition-transform group-hover:scale-105">
@@ -33,8 +33,9 @@ export function Header() {
 
         {/* Right cluster */}
         <div className="ml-auto flex items-center gap-2.5 xl:ml-0">
-          <SocialLinks className="hidden 2xl:flex" />
-          <span className="bg-border hidden h-5 w-px 2xl:block" aria-hidden />
+          {/* WhatsApp and Instagram show from tablet width up; the rest need a wide screen. */}
+          <SocialLinks className="hidden md:flex" secondaryClassName="hidden min-[1600px]:grid" />
+          <span className="bg-border hidden h-5 w-px md:block" aria-hidden />
           <Link
             href={ROUTES.favorites}
             aria-label={t("common.favorites")}
@@ -48,7 +49,7 @@ export function Header() {
             ) : null}
           </Link>
           <LanguageSwitcher className="hidden sm:flex" />
-          <Button asChild variant="lime" size="sm" className="hidden min-[1400px]:inline-flex">
+          <Button asChild variant="lime" size="sm" className="hidden min-[1600px]:inline-flex">
             <Link href={ROUTES.contacts}>{t("actions.bookViewing")}</Link>
           </Button>
           <MobileMenu />

@@ -46,10 +46,13 @@ export function SocialLinks({
   className,
   iconClassName,
   linkClassName,
+  secondaryClassName,
 }: {
   className?: string;
   iconClassName?: string;
   linkClassName?: string;
+  /** Extra classes for non-primary links, e.g. to hide them where space is short. */
+  secondaryClassName?: string;
 }) {
   return (
     <div className={cn("flex items-center gap-1", className)}>
@@ -66,6 +69,7 @@ export function SocialLinks({
             className={cn(
               "text-muted-foreground hover:text-foreground hover:bg-accent grid size-8 place-items-center rounded-full transition-colors",
               linkClassName,
+              !s.primary && secondaryClassName,
             )}
           >
             <Icon className={cn("size-4", iconClassName)} />
