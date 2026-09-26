@@ -146,7 +146,9 @@ export default async function AboutPage() {
         </Reveal>
       </section>
 
-      <AgentList withHeading />
+      <div id="team" className="scroll-mt-24">
+        <AgentList withHeading />
+      </div>
     </>
   );
 }

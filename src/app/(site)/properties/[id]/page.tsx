@@ -121,7 +121,13 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                   </Link>
                   <div className="text-muted-foreground text-xs">{agent.role}</div>
                 </div>
-                <ContactAgentDialog agentName={agent.name} triggerLabel="Ask" variant="outline" />
+                <ContactAgentDialog
+                  agentName={agent.name}
+                  agentId={agent.id}
+                  propertyId={property.id}
+                  triggerLabel="Ask"
+                  variant="outline"
+                />
               </div>
             ) : null}
           </div>

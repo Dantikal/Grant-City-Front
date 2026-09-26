@@ -48,34 +48,6 @@ const en: Dict = {
   "tst.3.d": "Managed let, Pearl District",
 
   // Services
-  "svc.buying.title": "Buying",
-  "svc.buying.body":
-    "We learn what actually matters to you, then filter ruthlessly — including off-market homes you won't find on the portals.",
-  "svc.buying.long":
-    "Buying with us starts with a real conversation, not a portal search. We get to the bottom of what you actually need, then do the legwork — including knocking on doors and working our network for homes that never hit the open market. We're with you at every viewing and we'll talk you out of the wrong house as readily as into the right one.",
-  "svc.buying.points":
-    "Off-market access | Honest second opinions | Negotiation on your side | Survey & legal coordination",
-  "svc.selling.title": "Selling",
-  "svc.selling.body":
-    "Honest pricing from day one, careful staging, and photography that flatters without lying. We hold out for the right buyer.",
-  "svc.selling.long":
-    "We price your home where it will actually sell, not where it wins us the instruction. Then we stage it carefully, photograph it properly, and market it to the buyers most likely to fall for it. One named agent runs your sale from first viewing to completion.",
-  "svc.selling.points":
-    "Straight pricing | Staging & photography | Targeted marketing | One agent, start to finish",
-  "svc.letting.title": "Letting",
-  "svc.letting.body":
-    "Finding tenants who'll treat your place like their own, with vetting and paperwork handled so you never chase a reference.",
-  "svc.letting.long":
-    "We find tenants who'll look after your property and stay a while, handling referencing, contracts and deposit protection so you never have to. Clear, compliant, and calm.",
-  "svc.letting.points":
-    "Thorough referencing | Compliant paperwork | Deposit protection | Tenant matching",
-  "svc.management.title": "Management",
-  "svc.management.body":
-    "Ongoing care for your rental — maintenance, inspections, and rent collection — so it never becomes a second job.",
-  "svc.management.long":
-    "Full management for owners who'd rather not field 2am phone calls. We handle maintenance, periodic inspections, rent collection and the steady drip of small things, with a trusted book of local trades behind us.",
-  "svc.management.points":
-    "Maintenance & trades | Periodic inspections | Rent collection | Single point of contact",
 
   // Agent bios (per id)
   "agent.agent-1.bio":
@@ -128,34 +100,6 @@ const ru: Dict = {
     "Прия управляет нашей арендой уже три года, и мы о ней просто не думаем. В этом ведь и весь смысл, верно?",
   "tst.3.d": "Управление арендой, Pearl District",
 
-  "svc.buying.title": "Покупка",
-  "svc.buying.body":
-    "Узнаём, что для вас действительно важно, и фильтруем безжалостно — включая внерыночные дома, которых нет на порталах.",
-  "svc.buying.long":
-    "Покупка с нами начинается с настоящего разговора, а не с поиска по порталу. Мы выясняем, что вам действительно нужно, и делаем всю работу — включая поиск домов, которые никогда не выходят на открытый рынок. Мы рядом на каждом просмотре и отговорим вас от неподходящего дома так же охотно, как поможем с правильным.",
-  "svc.buying.points":
-    "Доступ к внерыночным объектам | Честное второе мнение | Переговоры на вашей стороне | Координация осмотра и юридических вопросов",
-  "svc.selling.title": "Продажа",
-  "svc.selling.body":
-    "Честная цена с первого дня, аккуратная подготовка и фотографии, которые украшают без обмана. Мы ждём правильного покупателя.",
-  "svc.selling.long":
-    "Мы оцениваем ваш дом там, где он реально продастся, а не там, где это принесёт нам контракт. Затем аккуратно готовим его, правильно фотографируем и предлагаем тем покупателям, кому он, скорее всего, понравится. Один закреплённый агент ведёт продажу от первого просмотра до завершения.",
-  "svc.selling.points":
-    "Честная цена | Подготовка и фотосъёмка | Целевой маркетинг | Один агент от и до",
-  "svc.letting.title": "Аренда",
-  "svc.letting.body":
-    "Находим арендаторов, которые отнесутся к жилью как к своему, с проверкой и документами, чтобы вы не бегали за рекомендациями.",
-  "svc.letting.long":
-    "Мы находим арендаторов, которые позаботятся о вашем жилье и останутся надолго, берём на себя проверку, договоры и защиту депозита. Понятно, по закону и спокойно.",
-  "svc.letting.points":
-    "Тщательная проверка | Документы по закону | Защита депозита | Подбор арендаторов",
-  "svc.management.title": "Управление",
-  "svc.management.body":
-    "Постоянная забота о вашей аренде — обслуживание, осмотры и сбор платы, чтобы это не стало второй работой.",
-  "svc.management.long":
-    "Полное управление для владельцев, которым не хочется отвечать на звонки в 2 ночи. Мы берём на себя обслуживание, плановые осмотры, сбор платы и поток мелких дел, опираясь на проверенных местных мастеров.",
-  "svc.management.points":
-    "Обслуживание и мастера | Плановые осмотры | Сбор платы | Единая точка контакта",
 
   "agent.agent-1.bio":
     "Мара основала Grand City после десяти лет в крупном агентстве, захотев работать спокойнее и честнее. Она знает внутреннюю восточную часть квартал за кварталом и славится честной оценкой домов — даже когда это стоит ей контракта.",
@@ -206,34 +150,6 @@ const ky: Dict = {
     "Прия үч жылдан бери биздин ижараны башкарып келет, биз ал жөнүндө таптакыр ойлонбойбуз. Дал ушул максат эмеспи?",
   "tst.3.d": "Башкарылган ижара, Pearl District",
 
-  "svc.buying.title": "Сатып алуу",
-  "svc.buying.body":
-    "Сиз үчүн чындап маанилүүсүн билип алып, аёосуз чыпкалайбыз — порталдардан таппай турган рыноктон тышкаркы үйлөрдү кошкондо.",
-  "svc.buying.long":
-    "Биз менен сатып алуу порталдан издөө эмес, чыныгы сүйлөшүүдөн башталат. Сизге эмне керек экенин аныктап, бардык ишти аткарабыз — ачык рынокко чыкпаган үйлөрдү издөөнү кошкондо. Ар бир көрүүдө жаныңыздабыз жана туура эмес үйдөн да, туура үйгө багыттагандай эле, баш тарттырабыз.",
-  "svc.buying.points":
-    "Рыноктон тышкаркы объекттерге жетүү | Чынчыл экинчи пикир | Сиздин тарапта сүйлөшүү | Кароо жана юридикалык координация",
-  "svc.selling.title": "Сатуу",
-  "svc.selling.body":
-    "Биринчи күндөн чынчыл баа, кылдат даярдоо жана алдабай көркөмдөгөн сүрөттөр. Туура сатып алуучуну күтөбүз.",
-  "svc.selling.long":
-    "Биз үйүңүздү бизге келишим алып келген жерде эмес, чындап сатыла турган баада баалайбыз. Андан соң кылдат даярдап, туура сүрөткө тартып, аны жактырчу сатып алуучуларга сунуштайбыз. Бир дайындалган агент сатууну биринчи көрүүдөн аякташына чейин алып барат.",
-  "svc.selling.points":
-    "Туура баа | Даярдоо жана фотосүрөт | Багытталган маркетинг | Бир агент башынан аягына чейин",
-  "svc.letting.title": "Ижара",
-  "svc.letting.body":
-    "Жайды өзүнүкүндөй караган ижарачыларды табабыз, текшерүү жана документтерди өзүбүз чечип, сиз сунуш-каттарды кубалабайсыз.",
-  "svc.letting.long":
-    "Жайыңызды карап, узак турган ижарачыларды табабыз, текшерүү, келишим жана депозитти коргоону өзүбүз аткарабыз. Так, мыйзамдуу жана тынч.",
-  "svc.letting.points":
-    "Кылдат текшерүү | Мыйзамдуу документтер | Депозитти коргоо | Ижарачыны тандоо",
-  "svc.management.title": "Башкаруу",
-  "svc.management.body":
-    "Ижараңызга туруктуу кам көрүү — тейлөө, текшерүү жана акы чогултуу — ал экинчи жумушка айланбасы үчүн.",
-  "svc.management.long":
-    "Түнкү 2дө чалууларга жооп бергиси келбеген ээлер үчүн толук башкаруу. Тейлөө, мезгил-мезгили менен текшерүү, акы чогултуу жана майда иштердин агымын ишенимдүү жергиликтүү усталар менен аткарабыз.",
-  "svc.management.points":
-    "Тейлөө жана усталар | Мезгилдик текшерүү | Акы чогултуу | Бирдиктүү байланыш чекити",
 
   "agent.agent-1.bio":
     "Мара чоң агенттикте он жыл иштеп, тынчыраак жана чынчылыраак иштегиси келгенден кийин Grand City'ди негиздеген. Ал ички чыгыш тарапты кварталма-квартал билет жана үйлөрдү чынчыл баалоосу менен белгилүү — бул ага келишимди жоготтурса да.",
@@ -283,26 +199,6 @@ const zh: Dict = {
   "tst.3.q": "Priya 帮我们管理出租房已经三年，我们几乎从不需要操心。这不正是重点所在吗？",
   "tst.3.d": "托管出租，Pearl District",
 
-  "svc.buying.title": "购房",
-  "svc.buying.body": "先弄清什么对您真正重要，再进行严格筛选——包括门户网站上找不到的非公开房源。",
-  "svc.buying.long":
-    "和我们一起买房，从一次真正的交谈开始，而不是从门户网站的搜索开始。我们弄清您真正需要什么，然后亲自跑腿——包括上门询问、动用人脉去找那些从未公开上市的房子。每一次看房我们都在场，劝您放弃错误的房子和推荐对的房子一样干脆。",
-  "svc.buying.points": "非公开房源渠道 | 诚实的第二意见 | 站在您这边谈判 | 验房与法律事务协调",
-  "svc.selling.title": "售房",
-  "svc.selling.body": "从第一天起诚实定价、用心布置，照片好看但不失真。我们会等到对的买家。",
-  "svc.selling.long":
-    "我们按房子真正能成交的价格定价，而不是按能帮我们拿下委托的价格。然后精心布置、专业拍摄，并推广给最可能心动的买家。一位专属顾问从第一次看房负责到交割完成。",
-  "svc.selling.points": "实价定价 | 布置与摄影 | 精准营销 | 一位顾问全程负责",
-  "svc.letting.title": "租赁",
-  "svc.letting.body": "找到会像对待自己家一样爱惜房子的租客，资质核查与文件都由我们处理。",
-  "svc.letting.long":
-    "我们寻找会爱惜您的房子并愿意长住的租客，资质核查、合同和押金托管都由我们负责。清晰、合规、省心。",
-  "svc.letting.points": "严格资质核查 | 合规文件 | 押金托管 | 租客匹配",
-  "svc.management.title": "托管",
-  "svc.management.body": "持续照看您的出租房——维修、巡检和租金代收，不让它变成第二份工作。",
-  "svc.management.long":
-    "为不想半夜接电话的业主提供全托管。我们负责维修养护、定期巡检、租金代收以及各种琐碎小事，背后有一批值得信赖的本地施工师傅。",
-  "svc.management.points": "维修与施工 | 定期巡检 | 租金代收 | 单一对接人",
 
   "agent.agent-1.bio":
     "Mara 在一家走量的中介公司工作十年后，希望以更从容、更诚实的方式做事，于是创立了 Grand City。她对内东区了如指掌，以实价定价著称——即使这会让她丢掉委托。",
@@ -416,38 +312,6 @@ const companyEn: Dict = {
   "founder.bio":
     "More than 15 years of experience in real estate, independent valuation, investment analysis, finance and development. My approach combines deep strategy with simple execution — turning your ideas into clear, effective business decisions with guaranteed returns.",
 
-  "svc.buying.title": "Valuation",
-  "svc.buying.body":
-    "Independent appraisal with official reports for banks, courts, insurers and deals.",
-  "svc.buying.long":
-    "We provide independent valuation with official reports — for apartments, houses and land, commercial property, equipment and vehicles, businesses and intangible assets. Reports are prepared for banks, courts and insurers, and to support purchase, mortgage, inheritance and division of property.",
-  "svc.buying.points":
-    "Apartments, houses & land | Commercial property | Equipment & vehicles | Business & intangible assets",
-  "svc.selling.title": "Business Plans & Feasibility",
-  "svc.selling.body":
-    "Investment analysis and feasibility studies to justify a project for you and the banks.",
-  "svc.selling.long":
-    "We develop business plans, investment analysis and technical-economic studies — to prove a project's investment case for you and for lenders, and to support management decisions, tax optimization and reporting to banks, courts and insurers.",
-  "svc.selling.points":
-    "Investment analysis | Feasibility studies (TEO) | Collateral & lending | Reporting for banks & courts",
-  "svc.letting.title": "Buying & Selling",
-  "svc.letting.body":
-    "Primary and secondary market — apartments from developers and help to buy or sell yours.",
-  "svc.letting.long":
-    "On the primary market we offer apartments directly from contractors and developers at the best prices; on the secondary market we help you buy or sell at a fair price. We have a large partner base of land plots and listings across Bishkek.",
-  "svc.letting.points":
-    "Primary-market homes | Secondary market | Land-plot partner base | Best-price offers",
-  "svc.management.title": "Exclusive Seller Service",
-  "svc.management.body":
-    "Full packaging of your property — photo/video, copy, ads and priority listings — for a fast sale.",
-  "svc.management.long":
-    "We don't just list a property — we prepare it deeply. Our in-house marketing team handles professional photo and video (including drone), selling copy and creatives, targeted ads and priority placement on the leading marketplaces, plus legal checks and direct negotiation with the buyer — for a fixed fee, no hidden mark-ups.",
-  "svc.management.points":
-    "Pro photo, video & drone | Selling copy & creatives | Targeted ads & priority listings | Fixed fee, no hidden mark-ups",
-  "svc.buying.short": "Reports for banks & courts",
-  "svc.selling.short": "Investment analysis, feasibility",
-  "svc.letting.short": "Primary & secondary market",
-  "svc.management.short": "Full packaging, fast sale",
 };
 
 const companyRu: Dict = {
@@ -490,37 +354,6 @@ const companyRu: Dict = {
   "founder.bio":
     "Более 15 лет опыта в недвижимости, независимой оценке, инвестиционном анализе, финансах и девелопменте. Мой подход — сочетание глубокой стратегии и простоты исполнения: превращаю ваши идеи в понятные и эффективные бизнес-решения с гарантированной доходностью.",
 
-  "svc.buying.title": "Оценка",
-  "svc.buying.body":
-    "Независимая оценка с официальными отчётами для банков, судов, страховых и сделок.",
-  "svc.buying.long":
-    "Проводим независимую оценку с официальными отчётами — квартиры, дома и участки, коммерческая недвижимость, оборудование и транспорт, бизнес и нематериальные активы. Отчёты для банков, судов и страховых, а также для сопровождения купли-продажи, залога, наследства и раздела имущества.",
-  "svc.buying.points":
-    "Квартиры, дома и участки | Коммерческая недвижимость | Оборудование и транспорт | Бизнес и нематериальные активы",
-  "svc.selling.title": "Бизнес-планы и ТЭО",
-  "svc.selling.body": "Инвестиционный анализ и ТЭО для обоснования проекта для вас и банков.",
-  "svc.selling.long":
-    "Разрабатываем бизнес-планы, инвестиционный анализ и технико-экономические обоснования — чтобы обосновать инвестиционную привлекательность проекта для вас и кредиторов, поддержать управленческие решения, оптимизацию налогообложения и отчётность для банков, судов и страховых.",
-  "svc.selling.points":
-    "Инвестиционный анализ | ТЭО | Залог и кредитование | Отчётность для банков и судов",
-  "svc.letting.title": "Купля-продажа",
-  "svc.letting.body":
-    "Первичный и вторичный рынок — квартиры от застройщиков и помощь купить или продать вашу.",
-  "svc.letting.long":
-    "На первичном рынке предлагаем квартиры от подрядчиков и застройщиков по лучшим ценам; на вторичном — помогаем выгодно купить или продать. У нас большая партнёрская база земельных участков и предложений по Бишкеку.",
-  "svc.letting.points":
-    "Квартиры на первичке | Вторичный рынок | База земельных участков | Лучшие цены",
-  "svc.management.title": "Эксклюзивная продажа",
-  "svc.management.body":
-    "Полная «упаковка» объекта — фото/видео, тексты, реклама и приоритетные размещения — для быстрой продажи.",
-  "svc.management.long":
-    "Мы не просто «выставляем объект», а проводим глубокую подготовку. Собственный отдел маркетинга берёт на себя профессиональную фото- и видеосъёмку (включая дрон), продающие тексты и креативы, таргетированную рекламу и приоритетное размещение на ведущих маркетплейсах, а также юридическую проверку и прямые переговоры с покупателем — за фиксированный гонорар, без скрытых накруток.",
-  "svc.management.points":
-    "Проф. фото, видео и дрон | Продающие тексты и креативы | Таргет и приоритет размещения | Фикс. гонорар без накруток",
-  "svc.buying.short": "Отчёты для банков и судов",
-  "svc.selling.short": "Инвестанализ и ТЭО",
-  "svc.letting.short": "Первичка и вторичка",
-  "svc.management.short": "Упаковка и быстрая продажа",
 };
 
 const companyKy: Dict = {
@@ -563,37 +396,6 @@ const companyKy: Dict = {
   "founder.bio":
     "Кыймылсыз мүлк, көз карандысыз баалоо, инвестициялык талдоо, каржы жана девелопмент тармагында 15 жылдан ашык тажрыйба. Менин ыкмам — терең стратегияны жана жөнөкөй аткарууну айкалыштыруу: идеяларыңызды кепилденген кирешеси бар түшүнүктүү жана натыйжалуу бизнес-чечимдерге айландырам.",
 
-  "svc.buying.title": "Баалоо",
-  "svc.buying.body":
-    "Банктар, соттор, камсыздандыруу жана бүтүмдөр үчүн расмий отчёттор менен көз карандысыз баалоо.",
-  "svc.buying.long":
-    "Көз карандысыз баалоону расмий отчёттор менен жүргүзөбүз — батирлер, үйлөр жана жер тилкелери, коммерциялык кыймылсыз мүлк, жабдуулар жана транспорт, бизнес жана материалдык эмес активдер. Отчёттор банктар, соттор жана камсыздандыруу үчүн, ошондой эле сатып алуу-сатуу, күрөө, мурас жана мүлктү бөлүштүрүүнү коштоо үчүн.",
-  "svc.buying.points":
-    "Батирлер, үйлөр жана жер | Коммерциялык мүлк | Жабдуу жана транспорт | Бизнес жана материалдык эмес активдер",
-  "svc.selling.title": "Бизнес-пландар жана ТЭН",
-  "svc.selling.body": "Долбоорду сиз жана банктар үчүн негиздөөгө инвестициялык талдоо жана ТЭН.",
-  "svc.selling.long":
-    "Бизнес-пландарды, инвестициялык талдоону жана техникалык-экономикалык негиздемелерди иштеп чыгабыз — долбоордун инвестициялык жагымдуулугун сиз жана кредиторлор үчүн далилдөө, башкаруу чечимдерин, салыкты оптималдаштырууну жана банктарга, сотторго жана камсыздандырууга отчётту колдоо үчүн.",
-  "svc.selling.points":
-    "Инвестициялык талдоо | ТЭН | Күрөө жана кредит | Банктарга жана сотторго отчёт",
-  "svc.letting.title": "Сатып алуу-сатуу",
-  "svc.letting.body":
-    "Биринчилик жана экинчилик рынок — курулушчулардан батирлер жана сиздикин сатууга жардам.",
-  "svc.letting.long":
-    "Биринчилик рынокто подрядчиктерден жана курулушчулардан эң жакшы баада батирлерди сунуштайбыз; экинчиликте — пайдалуу сатып алууга же сатууга жардам беребиз. Бишкек боюнча жер тилкелеринин жана сунуштардын чоң өнөктөш базасы бар.",
-  "svc.letting.points":
-    "Биринчилик батирлер | Экинчилик рынок | Жер тилке базасы | Эң жакшы баалар",
-  "svc.management.title": "Эксклюзивдүү сатуу",
-  "svc.management.body":
-    "Объектти толук «таңгактоо» — фото/видео, тексттер, жарнама жана артыкчылыктуу жайгаштыруу — тез сатуу үчүн.",
-  "svc.management.long":
-    "Биз объектти жөн гана «коюп» койбостон, терең даярдайбыз. Өзүбүздүн маркетинг бөлүмү кесипкөй фото жана видео тартууну (дрон менен), сатуучу тексттерди жана креативдерди, багытталган жарнаманы жана алдыңкы маркетплейстерде артыкчылыктуу жайгаштырууну, ошондой эле юридикалык текшерүүнү жана сатып алуучу менен түз сүйлөшүүнү аткарат — туруктуу гонорар үчүн, жашыруун кошумчаларсыз.",
-  "svc.management.points":
-    "Кесипкөй фото, видео, дрон | Сатуучу текст жана креатив | Таргет жана артыкчылыктуу жайгаштыруу | Туруктуу гонорар, кошумчасыз",
-  "svc.buying.short": "Банк жана сот үчүн отчёт",
-  "svc.selling.short": "Инвестталдоо жана ТЭН",
-  "svc.letting.short": "Биринчи жана экинчи рынок",
-  "svc.management.short": "Толук даярдоо, тез сатуу",
 };
 
 const companyZh: Dict = {
@@ -634,31 +436,6 @@ const companyZh: Dict = {
   "founder.bio":
     "在房地产、独立评估、投资分析、金融与开发领域拥有 15 年以上经验。我的方法是把深度策略与简洁执行结合起来——把您的想法转化为清晰高效、收益有保障的商业决策。",
 
-  "svc.buying.title": "资产评估",
-  "svc.buying.body": "面向银行、法院、保险公司及交易的独立评估，出具正式报告。",
-  "svc.buying.long":
-    "我们提供出具正式报告的独立评估——涵盖公寓、住宅与地块、商业物业、设备与车辆、企业及无形资产。报告可用于银行、法院和保险公司，也可用于买卖、抵押、继承和财产分割的全程支持。",
-  "svc.buying.points": "公寓、住宅与地块 | 商业物业 | 设备与车辆 | 企业与无形资产",
-  "svc.selling.title": "商业计划与可行性研究",
-  "svc.selling.body": "投资分析与可行性研究，为您和银行论证项目价值。",
-  "svc.selling.long":
-    "我们编制商业计划、投资分析和技术经济论证——向您和贷款方证明项目的投资价值，并支持管理决策、税务优化以及面向银行、法院和保险公司的报告。",
-  "svc.selling.points": "投资分析 | 可行性研究（ТЭО） | 抵押与信贷 | 面向银行与法院的报告",
-  "svc.letting.title": "买卖代理",
-  "svc.letting.body": "一手与二手市场——开发商直供房源，以及协助您买入或卖出。",
-  "svc.letting.long":
-    "在一手市场，我们以最优价格提供来自承建方和开发商的房源；在二手市场，我们协助您以公道的价格买入或卖出。我们在比什凯克拥有庞大的地块与房源合作数据库。",
-  "svc.letting.points": "一手房源 | 二手市场 | 地块合作数据库 | 最优价格",
-  "svc.management.title": "独家代售",
-  "svc.management.body": "对房产进行完整包装——图片/视频、文案、广告与优先展位——实现快速成交。",
-  "svc.management.long":
-    "我们不只是「把房子挂出去」，而是做深度准备。自有营销团队负责专业图片与视频拍摄（含航拍）、销售文案与创意、精准投放广告以及在主流平台的优先展位，同时提供法律核查和与买家的直接谈判——固定佣金，绝无隐性加价。",
-  "svc.management.points":
-    "专业图片、视频与航拍 | 销售文案与创意 | 精准投放与优先展位 | 固定佣金，无隐性加价",
-  "svc.buying.short": "面向银行与法院的报告",
-  "svc.selling.short": "投资分析与可行性研究",
-  "svc.letting.short": "一手与二手市场",
-  "svc.management.short": "全面包装，快速成交",
 };
 
 // --- Filter / sort / status labels ---

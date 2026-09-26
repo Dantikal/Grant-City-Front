@@ -9,6 +9,7 @@ import {
   createRequest,
   requestSchema,
   type RequestFormValues,
+  type RequestContext,
   type RequestKind,
 } from "@/entities/request";
 import { useTranslation } from "@/shared/i18n";
@@ -21,10 +22,12 @@ import { cn } from "@/shared/lib/cn";
 
 export function RequestForm({
   defaultKind = "general",
+  context,
   onSuccess,
   className,
 }: {
   defaultKind?: RequestKind;
+  context?: RequestContext;
   onSuccess?: () => void;
   className?: string;
 }) {
@@ -41,8 +44,13 @@ export function RequestForm({
   });
 
   async function onSubmit(values: RequestFormValues) {
-    await createRequest(values);
-    toast.success("Message sent", { description: "We'll reply within one business day." });
+    try {
+      await createRequest(values, context);
+    } catch {
+      toast.error(t("form.failed"));
+      return;
+    }
+    toast.success(t("form.sent"), { description: t("form.sentText") });
     reset({ name: "", email: "", phone: "", kind: defaultKind, message: "" });
     onSuccess?.();
   }

@@ -1,64 +1,62 @@
-import type { Service } from "./service.types";
+import type { Department, Service } from "./service.types";
 
+/** The company's four lines of work. Displayed copy is translated under
+ *  `svc.<id>.*`; the English fields here back the admin table. */
 export const SERVICES: Service[] = [
   {
-    id: "buying",
+    id: "land",
     no: "01",
-    slug: "buying",
-    title: "Buying",
-    body: "We learn what actually matters to you, then filter ruthlessly — including off-market homes you won't find on the portals.",
-    longBody:
-      "Buying with us starts with a real conversation, not a portal search. We get to the bottom of what you actually need, then do the legwork — including knocking on doors and working our network for homes that never hit the open market. We're with you at every viewing and we'll talk you out of the wrong house as readily as into the right one.",
-    points: [
-      "Off-market access",
-      "Honest second opinions",
-      "Negotiation on your side",
-      "Survey & legal coordination",
-    ],
+    slug: "land",
+    title: "Land plot sales",
+    body: "Buying and selling land plots.",
+    longBody: "We handle the purchase and sale of land plots from search to closing.",
+    points: ["Buying and selling land plots"],
   },
   {
-    id: "selling",
+    id: "business-plans",
     no: "02",
-    slug: "selling",
-    title: "Selling",
-    body: "Honest pricing from day one, careful staging, and photography that flatters without lying. We hold out for the right buyer.",
+    slug: "business-plans",
+    title: "Business plans & intangible asset valuation",
+    body: "Business plans for land development and for growing a business; business and intangible asset valuation.",
     longBody:
-      "We price your home where it will actually sell, not where it wins us the instruction. Then we stage it carefully, photograph it properly, and market it to the buyers most likely to fall for it. One named agent runs your sale from first viewing to completion.",
+      "We prepare business plans for land development and for growing a business, and value businesses and intangible assets.",
     points: [
-      "Straight pricing",
-      "Staging & photography",
-      "Targeted marketing",
-      "One agent, start to finish",
+      "Business plans for land plot development",
+      "Business plans for business development",
+      "Business and intangible asset valuation",
     ],
   },
   {
-    id: "letting",
+    id: "valuation",
     no: "03",
-    slug: "letting",
-    title: "Letting",
-    body: "Finding tenants who'll treat your place like their own, with vetting and paperwork handled so you never chase a reference.",
-    longBody:
-      "We find tenants who'll look after your property and stay a while, handling referencing, contracts and deposit protection so you never have to. Clear, compliant, and calm.",
+    slug: "valuation",
+    title: "Valuation of all types of property and intangible assets",
+    body: "Real estate, machinery, vehicles, property complexes, businesses and shares, mineral deposits and intangible assets.",
+    longBody: "Independent valuation of every type of property and of intangible assets.",
     points: [
-      "Thorough referencing",
-      "Compliant paperwork",
-      "Deposit protection",
-      "Tenant matching",
+      "Real estate valuation",
+      "Machinery and equipment",
+      "Motor vehicles",
+      "Property complexes",
+      "Business and shares",
+      "Mineral deposits",
+      "Intangible assets",
     ],
   },
   {
-    id: "management",
+    id: "sales",
     no: "04",
-    slug: "management",
-    title: "Management",
-    body: "Ongoing care for your rental — maintenance, inspections, and rent collection — so it never becomes a second job.",
-    longBody:
-      "Full management for owners who'd rather not field 2am phone calls. We handle maintenance, periodic inspections, rent collection and the steady drip of small things, with a trusted book of local trades behind us.",
-    points: [
-      "Maintenance & trades",
-      "Periodic inspections",
-      "Rent collection",
-      "Single point of contact",
-    ],
+    slug: "sales",
+    title: "Real estate sales",
+    body: "Sales of new-build (apartments, commercial, Issyk-Kul) and resale real estate.",
+    longBody: "We sell new-build and resale real estate.",
+    points: ["Primary market: apartments, commercial, Issyk-Kul", "Secondary market"],
   },
+];
+
+/** Company departments and the services each one runs. */
+export const DEPARTMENTS: Department[] = [
+  { id: "valuation", services: ["valuation"] },
+  { id: "planning", services: ["business-plans"] },
+  { id: "sales", services: ["land", "sales"] },
 ];

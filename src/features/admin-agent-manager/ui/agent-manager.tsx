@@ -4,7 +4,16 @@ import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
-import { fetchAgents, createAgent, updateAgent, removeAgent, type Agent } from "@/entities/agent";
+import {
+  fetchAgents,
+  createAgent,
+  updateAgent,
+  removeAgent,
+  type Agent,
+  type Department,
+} from "@/entities/agent";
+import { DEPARTMENT_LABELS, DEPARTMENTS } from "@/entities/crm";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select";
 import { queryKeys } from "@/shared/api/query-client";
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
@@ -27,6 +36,7 @@ type Draft = {
   areas: string;
   specialties: string;
   photo: string;
+  department: Department | "";
 };
 
 const blank: Draft = {
@@ -38,6 +48,7 @@ const blank: Draft = {
   areas: "",
   specialties: "",
   photo: "",
+  department: "sales",
 };
 
 const slugify = (s: string) =>
@@ -78,6 +89,7 @@ export function AgentManager() {
       areas: a.areas.join(", "),
       specialties: a.specialties.join(", "),
       photo: a.photo,
+      department: a.department ?? "",
     });
     setOpen(true);
   }
@@ -102,6 +114,7 @@ export function AgentManager() {
       salesCount: existing?.salesCount ?? 0,
       rating: existing?.rating ?? 4.8,
       since: existing?.since ?? new Date().getFullYear(),
+      department: draft.department || null,
     };
     try {
       if (editingId) await updateAgent(agent);
@@ -129,6 +142,7 @@ export function AgentManager() {
             <TableRow>
               <TableHead>Agent</TableHead>
               <TableHead>Role</TableHead>
+              <TableHead>Department</TableHead>
               <TableHead>Areas</TableHead>
               <TableHead>Rating</TableHead>
               <TableHead className="text-right">Actions</TableHead>
@@ -142,6 +156,9 @@ export function AgentManager() {
                   <div className="text-muted-foreground text-xs">{a.email}</div>
                 </TableCell>
                 <TableCell className="text-muted-foreground text-sm">{a.role}</TableCell>
+                <TableCell className="text-muted-foreground text-sm">
+                  {a.department ? DEPARTMENT_LABELS[a.department] : "—"}
+                </TableCell>
                 <TableCell className="text-muted-foreground max-w-[200px] truncate text-sm">
                   {a.areas.join(", ")}
                 </TableCell>
@@ -199,6 +216,24 @@ export function AgentManager() {
             </F>
             <F label="Phone">
               <Input value={draft.phone} onChange={(e) => set("phone", e.target.value)} />
+            </F>
+            <F label="Department (CRM routing)" full>
+              <Select
+                value={draft.department || "none"}
+                onValueChange={(v) => set("department", v === "none" ? "" : (v as Department))}
+              >
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="none">— Not in the CRM rotation</SelectItem>
+                  {DEPARTMENTS.map((d) => (
+                    <SelectItem key={d} value={d}>
+                      {DEPARTMENT_LABELS[d]}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </F>
             <F label="Areas (comma-separated)" full>
               <Input value={draft.areas} onChange={(e) => set("areas", e.target.value)} />

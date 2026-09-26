@@ -8,6 +8,7 @@ import {
   ClipboardList,
   ExternalLink,
   Home,
+  KanbanSquare,
   LayoutDashboard,
   LogOut,
   Settings,
@@ -21,6 +22,7 @@ import { cn } from "@/shared/lib/cn";
 
 const NAV = [
   { label: "Dashboard", href: ROUTES.admin, icon: LayoutDashboard },
+  { label: "CRM", href: ROUTES.adminCrm, icon: KanbanSquare },
   { label: "Properties", href: ROUTES.adminProperties, icon: Home },
   { label: "Agents", href: ROUTES.adminAgents, icon: Users },
   { label: "Services", href: ROUTES.adminServices, icon: Wrench },

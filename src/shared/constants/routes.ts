@@ -5,6 +5,7 @@ export const ROUTES = {
   aboutCertificates: "/about/documents/certificates",
   aboutPresentation: "/about/documents/presentation",
   services: "/services",
+  experience: "/experience",
   agents: "/agents",
   agent: (id: string) => `/agents/${id}`,
   properties: "/properties",
@@ -21,6 +22,7 @@ export const ROUTES = {
   adminAgents: "/admin/agents",
   adminServices: "/admin/services",
   adminRequests: "/admin/requests",
+  adminCrm: "/admin/crm",
   adminCertificates: "/admin/certificates",
   adminSettings: "/admin/settings",
 } as const;

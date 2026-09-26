@@ -39,7 +39,7 @@ export function MobileMenu() {
         type="button"
         aria-label="Open menu"
         onClick={() => setOpen(true)}
-        className="border-border bg-background grid size-10 place-items-center rounded-full border md:hidden"
+        className="border-border bg-background grid size-10 place-items-center rounded-full border xl:hidden"
       >
         <Menu className="size-5" />
       </button>
@@ -51,7 +51,7 @@ export function MobileMenu() {
                 <motion.div
                   // Portaled to <body> so it escapes the header's backdrop-filter and
                   // covers the full viewport with a solid background.
-                  className="bg-background fixed inset-0 z-[200] flex flex-col md:hidden"
+                  className="bg-background fixed inset-0 z-[200] flex flex-col xl:hidden"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

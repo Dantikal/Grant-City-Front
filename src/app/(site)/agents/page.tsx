@@ -3,12 +3,13 @@ import Link from "next/link";
 import { AgentList } from "@/widgets/agent-list";
 import { ROUTES } from "@/shared/constants/routes";
 import { getT } from "@/shared/i18n/server";
+import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
 import { PageIntro } from "@/shared/ui/page-intro";
 import { cn } from "@/shared/lib/cn";
 
 export const metadata: Metadata = {
-  title: "Agents",
-  description: "Meet the small team behind Grand City — agents you'll actually know by name.",
+  title: "Employees",
+  description: "The Grand City team — sales agents and valuation specialists.",
 };
 
 // Agent data lives in the backend — render on demand.
@@ -33,7 +34,18 @@ export default async function AgentsPage({
 
   return (
     <>
+      <div className="mx-auto max-w-[1240px] px-6 pt-8 md:px-12">
+        <Breadcrumbs
+          items={[
+            { label: t("nav.home"), href: ROUTES.home },
+            { label: t("nav.about"), href: ROUTES.about },
+            { label: t("nav.agents") },
+          ]}
+        />
+      </div>
+
       <PageIntro
+        className="pt-8 md:pt-10"
         eyebrow={t("home.agents.eyebrow")}
         title={t("agentsPage.title")}
         subtitle={t("agentsPage.subtitle")}

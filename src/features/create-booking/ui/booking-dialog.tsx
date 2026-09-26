@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarDays, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { bookingSchema, createBooking, type BookingFormValues } from "@/entities/booking";
+import { useTranslation } from "@/shared/i18n";
 import { Button, type ButtonProps } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
 import { Textarea } from "@/shared/ui/textarea";
@@ -29,6 +30,7 @@ export function BookingDialog({
   variant?: ButtonProps["variant"];
 }) {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -40,9 +42,14 @@ export function BookingDialog({
   });
 
   async function onSubmit(values: BookingFormValues) {
-    await createBooking(values);
-    toast.success("Viewing requested", {
-      description: `We'll confirm a time for ${propertyTitle}.`,
+    try {
+      await createBooking(values);
+    } catch {
+      toast.error(t("form.failed"));
+      return;
+    }
+    toast.success(t("booking.sent"), {
+      description: t("booking.sentText", { title: propertyTitle }),
     });
     reset({ propertyId, name: "", email: "", phone: "", date: "", message: "" });
     setOpen(false);
@@ -53,12 +60,12 @@ export function BookingDialog({
       <ModalTrigger asChild>
         <Button variant={variant} size="lg">
           <CalendarDays className="size-4" />
-          Book a viewing
+          {t("actions.bookViewing")}
         </Button>
       </ModalTrigger>
       <ModalContent>
         <ModalHeader>
-          <ModalTitle>Book a viewing</ModalTitle>
+          <ModalTitle>{t("actions.bookViewing")}</ModalTitle>
           <ModalDescription>{propertyTitle}</ModalDescription>
         </ModalHeader>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

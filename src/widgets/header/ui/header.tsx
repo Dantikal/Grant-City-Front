@@ -29,12 +29,12 @@ export function Header() {
         </Link>
 
         {/* Centered nav, pushes the right cluster to the far edge */}
-        <NavMenu className="hidden flex-1 md:flex" />
+        <NavMenu className="hidden flex-1 xl:flex" />
 
         {/* Right cluster */}
-        <div className="ml-auto flex items-center gap-2.5 md:ml-0">
-          <SocialLinks className="hidden lg:flex" />
-          <span className="bg-border hidden h-5 w-px lg:block" aria-hidden />
+        <div className="ml-auto flex items-center gap-2.5 xl:ml-0">
+          <SocialLinks className="hidden 2xl:flex" />
+          <span className="bg-border hidden h-5 w-px 2xl:block" aria-hidden />
           <Link
             href={ROUTES.favorites}
             aria-label={t("common.favorites")}
@@ -48,7 +48,7 @@ export function Header() {
             ) : null}
           </Link>
           <LanguageSwitcher className="hidden sm:flex" />
-          <Button asChild variant="lime" size="sm" className="hidden md:inline-flex">
+          <Button asChild variant="lime" size="sm" className="hidden min-[1400px]:inline-flex">
             <Link href={ROUTES.contacts}>{t("actions.bookViewing")}</Link>
           </Button>
           <MobileMenu />

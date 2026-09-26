@@ -7,7 +7,10 @@ import { fetchAgents } from "@/entities/agent";
 import { fetchServices } from "@/entities/service";
 import { listRequests } from "@/entities/request";
 import { queryKeys } from "@/shared/api/query-client";
+import Link from "next/link";
 import { RequestManager } from "@/features/admin-request-manager";
+import { CrmSummaryCards } from "@/features/admin-crm";
+import { ROUTES } from "@/shared/constants/routes";
 
 export default function AdminDashboard() {
   const { data: properties } = useQuery({
@@ -47,6 +50,16 @@ export default function AdminDashboard() {
           );
         })}
       </div>
+
+      <section className="mt-12">
+        <div className="mb-4 flex items-baseline justify-between gap-4">
+          <h2 className="font-serif text-2xl font-semibold">CRM</h2>
+          <Link href={ROUTES.adminCrm} className="text-brand-accent text-sm font-semibold hover:underline">
+            Открыть воронку →
+          </Link>
+        </div>
+        <CrmSummaryCards />
+      </section>
 
       <section className="mt-12">
         <h2 className="mb-4 font-serif text-2xl font-semibold">Recent requests</h2>

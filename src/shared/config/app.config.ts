@@ -14,12 +14,15 @@ export const appConfig = {
     region: "",
     postal: "",
   },
+  /** `label` names the network (and picks the icon); `handle` tells apart two accounts
+   *  on the same network. */
   social: [
-    { label: "WhatsApp", href: "https://wa.me/99631200000" },
-    { label: "Instagram", href: "https://instagram.com" },
+    { label: "WhatsApp", handle: "+996 551 211 209", href: "https://wa.me/996551211209" },
+    { label: "Instagram", handle: "@bizness.expert", href: "https://www.instagram.com/bizness.expert/" },
+    { label: "Instagram", handle: "@maria_nirenberg", href: "https://www.instagram.com/maria_nirenberg/" },
     { label: "Facebook", href: "https://facebook.com" },
     { label: "LinkedIn", href: "https://linkedin.com" },
-  ],
+  ] as { label: string; handle?: string; href: string }[],
   nav: [
     { label: "Properties", href: ROUTES.properties },
     { label: "Services", href: ROUTES.services },
